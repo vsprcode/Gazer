@@ -28,32 +28,21 @@
     background: var(--black);
     color: var(--white);
     font-family: var(--font);
-    font-size: 12px;
+    font-size: 14px;
     line-height: 1.5;
     height: 100%;
     overflow: hidden;
   }
   #app {
-    width: 100%;
-    max-width: 480px;
-    margin: 0 auto;
-    height: 100dvh;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    background: var(--black);
-    border-left: var(--border);
-    border-right: var(--border);
-    position: relative;
+    width: 100%; max-width: 480px; margin: 0 auto;
+    height: 100dvh; display: flex; flex-direction: column;
+    overflow: hidden; background: var(--black);
+    border-left: var(--border); border-right: var(--border); position: relative;
   }
-  /* Scanlines */
   #app::before {
-    content: '';
-    position: fixed;
-    inset: 0;
+    content: ''; position: fixed; inset: 0;
     background: repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.06) 2px,rgba(0,0,0,0.06) 4px);
-    pointer-events: none;
-    z-index: 9999;
+    pointer-events: none; z-index: 9999;
   }
   .screen { display: none; flex-direction: column; flex: 1; overflow: hidden; }
   .screen.active { display: flex; }
@@ -62,7 +51,7 @@
   .status-bar {
     display: flex; align-items: center; justify-content: space-between;
     padding: 7px 16px; border-bottom: var(--border);
-    background: var(--black-2); font-size: 9px; letter-spacing: 0.08em; color: var(--white-dim); flex-shrink: 0;
+    background: var(--black-2); font-size: 11px; letter-spacing: 0.08em; color: var(--white-dim); flex-shrink: 0;
   }
   .s-left { display: flex; align-items: center; gap: 8px; }
   .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); box-shadow: 0 0 5px var(--green); animation: pulse 2s infinite; }
@@ -73,7 +62,7 @@
   .bottom-nav { display: flex; border-top: var(--border); background: var(--black-2); flex-shrink: 0; }
   .nav-btn {
     flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center;
-    gap: 3px; padding: 9px 4px; font-size: 7.5px; letter-spacing: 0.12em;
+    gap: 3px; padding: 9px 4px; font-size: 9.5px; letter-spacing: 0.12em;
     color: var(--white-dimmer); cursor: pointer; border: none; background: transparent;
     font-family: var(--font); text-transform: uppercase; transition: color 0.15s, background 0.15s; position: relative;
   }
@@ -82,26 +71,53 @@
   .nav-btn.active::before { content:''; position:absolute; top:0;left:0;right:0; height:2px; background:var(--orange); }
   .nav-icon { font-size: 15px; line-height: 1; }
 
+  /* ── LOGIN ── */
+  #s-login { justify-content: center; align-items: center; padding: 24px 20px; }
+  .login-wrap { width: 100%; max-width: 300px; }
+  .login-brand { text-align: center; margin-bottom: 28px; }
+  .login-logo { font-size: 44px; font-weight: 700; font-style: italic; letter-spacing: -0.02em; line-height: 1; }
+  .login-logo .p { color: var(--orange); }
+  .login-sub { font-size: 11px; letter-spacing: 0.2em; color: var(--white-dimmer); text-transform: uppercase; margin-top: 4px; }
+  .login-mode { font-size: 11px; letter-spacing: 0.15em; color: var(--orange); text-transform: uppercase; text-align: center; margin-bottom: 20px; }
+  .pin-dots { display: flex; gap: 14px; justify-content: center; margin-bottom: 24px; }
+  .pin-dot { width: 16px; height: 16px; border-radius: 50%; border: 1.5px solid var(--white-dimmer); background: transparent; transition: background 0.15s, border-color 0.15s; }
+  .pin-dot.filled { background: var(--orange); border-color: var(--orange); }
+  .pin-dot.err { background: var(--red); border-color: var(--red); }
+  .keypad { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .k-btn {
+    display: flex; align-items: center; justify-content: center;
+    height: 54px; background: var(--black-2); border: var(--border);
+    font-family: var(--font); font-size: 19px; font-weight: 700; color: var(--white);
+    cursor: pointer; transition: background 0.12s, border-color 0.12s;
+  }
+  .k-btn:hover { background: var(--black-3); border-color: var(--orange); }
+  .k-btn:active { background: var(--orange-dim); }
+  .k-btn.k-del { font-size: 13px; color: var(--white-dimmer); }
+  .k-btn.k-ok  { font-size: 13px; color: var(--orange); border-color: var(--orange); }
+  .login-err  { font-size: 10px; letter-spacing: 0.1em; color: var(--red); text-align: center; margin-bottom: 12px; min-height: 16px; }
+  .login-hint { font-size: 11px; letter-spacing: 0.12em; color: var(--white-dimmer); text-align: center; margin-top: 18px; cursor: pointer; text-decoration: underline; }
+  .login-hint:hover { color: var(--orange); }
+
   /* ── LANDING ── */
   #s-landing { justify-content: space-between; }
   .landing-body { flex:1; display:flex; flex-direction:column; justify-content:center; padding: 20px 20px 16px; }
-  .l-label { font-size: 9px; letter-spacing: 0.2em; color: var(--white-dimmer); margin-bottom: 14px; }
+  .l-label { font-size: 11px; letter-spacing: 0.2em; color: var(--white-dimmer); margin-bottom: 14px; }
   .logo { font-size: clamp(50px,17vw,70px); font-weight:700; font-style:italic; letter-spacing:-0.02em; line-height:0.88; color:var(--white); margin-bottom:6px; }
   .logo .p { color: var(--orange); }
-  .logo-sub { font-size:8px; letter-spacing:0.16em; color:var(--white-dimmer); margin-bottom:22px; text-transform:uppercase; }
-  .tagline { font-size:10px; color:var(--white-dim); line-height:1.65; border-left:3px solid var(--orange); padding-left:11px; margin-bottom:26px; letter-spacing:0.04em; }
+  .logo-sub { font-size: 10px; letter-spacing:0.16em; color:var(--white-dimmer); margin-bottom:22px; text-transform:uppercase; }
+  .tagline { font-size: 12px; color:var(--white-dim); line-height:1.65; border-left:3px solid var(--orange); padding-left:11px; margin-bottom:26px; letter-spacing:0.04em; }
   .stats-grid { display:grid; grid-template-columns:1fr 1fr; gap:7px; margin-bottom:24px; }
   .stat { background:var(--black-2); border:var(--border); padding:11px; }
-  .stat-lbl { font-size:7.5px; letter-spacing:0.15em; color:var(--white-dimmer); text-transform:uppercase; margin-bottom:3px; }
-  .stat-val { font-size:19px; font-weight:700; line-height:1; margin-bottom:7px; }
-  .stat-val.gr { font-size:13px; color:var(--green); letter-spacing:0.1em; }
+  .stat-lbl { font-size: 9.5px; letter-spacing:0.15em; color:var(--white-dimmer); text-transform:uppercase; margin-bottom:3px; }
+  .stat-val { font-size: 21px; font-weight:700; line-height:1; margin-bottom:7px; }
+  .stat-val.gr { font-size: 15px; color:var(--green); letter-spacing:0.1em; }
   .bar-track { height:2px; background:var(--black-4); }
   .bar-fill { height:100%; background:var(--orange); transition:width 1.2s ease; }
   .bar-fill.g { background:var(--green); }
   .btn-p {
     display:flex; align-items:center; justify-content:center; gap:10px;
     background:var(--orange); color:var(--black); border:none;
-    padding:13px 24px; font-family:var(--font); font-size:11.5px; font-weight:700;
+    padding:13px 24px; font-family:var(--font); font-size: 13.5px; font-weight:700;
     letter-spacing:0.15em; text-transform:uppercase; cursor:pointer; width:100%;
     transition:background 0.15s, transform 0.1s;
   }
@@ -110,7 +126,7 @@
   .btn-s {
     display:flex; align-items:center; justify-content:center; gap:8px;
     background:transparent; color:var(--white-dim); border:var(--border);
-    padding:10px 24px; font-family:var(--font); font-size:10px;
+    padding:10px 24px; font-family:var(--font); font-size: 12px;
     letter-spacing:0.12em; cursor:pointer; width:100%; margin-top:7px;
     transition:border-color 0.15s, color 0.15s;
   }
@@ -125,21 +141,21 @@
   .os-icon {
     width:27px; height:27px; background:var(--orange);
     display:flex; align-items:center; justify-content:center;
-    font-size:10px; font-weight:700; color:var(--black); flex-shrink:0;
+    font-size:12px; font-weight:700; color:var(--black); flex-shrink:0;
   }
-  .os-title { font-size:12px; font-weight:700; letter-spacing:0.1em; }
-  .os-sub { font-size:8px; color:var(--white-dimmer); letter-spacing:0.1em; }
+  .os-title { font-size: 14px; font-weight:700; letter-spacing:0.1em; }
+  .os-sub { font-size: 10px; color:var(--white-dimmer); letter-spacing:0.1em; }
   .hdr-right { display:flex; align-items:center; gap:7px; }
   .ico-btn {
-    width:28px; height:28px; display:flex; align-items:center; justify-content:center;
+    width:30px; height:30px; display:flex; align-items:center; justify-content:center;
     background:transparent; border:var(--border); color:var(--white-dim);
-    cursor:pointer; font-size:13px; transition:border-color 0.15s, color 0.15s;
+    cursor:pointer; font-size:15px; transition:border-color 0.15s, color 0.15s;
   }
   .ico-btn:hover { border-color:var(--orange); color:var(--orange); }
   .tabs { display:flex; border-bottom:var(--border); background:var(--black-2); overflow-x:auto; scrollbar-width:none; flex-shrink:0; }
   .tabs::-webkit-scrollbar { display:none; }
   .tab {
-    padding:9px 13px; font-size:8.5px; font-weight:700; letter-spacing:0.15em;
+    padding:9px 13px; font-size: 10.5px; font-weight:700; letter-spacing:0.15em;
     color:var(--white-dimmer); cursor:pointer; white-space:nowrap;
     border:none; background:transparent; font-family:var(--font);
     text-transform:uppercase; position:relative; transition:color 0.15s;
@@ -150,7 +166,7 @@
   .priority-bar {
     display:flex; align-items:center; gap:7px; padding:7px 14px;
     background:rgba(232,85,0,0.08); border-bottom:1px solid rgba(232,85,0,0.25);
-    font-size:8.5px; letter-spacing:0.15em; color:var(--orange); text-transform:uppercase; flex-shrink:0;
+    font-size: 10.5px; letter-spacing:0.15em; color:var(--orange); text-transform:uppercase; flex-shrink:0;
   }
   .p-dot { width:6px; height:6px; background:var(--orange); border-radius:50%; animation:pulse 1s infinite; }
   .feed-list { flex:1; overflow-y:auto; scrollbar-width:thin; scrollbar-color:var(--black-4) transparent; }
@@ -168,70 +184,89 @@
   .card.c-live { border-left-color:var(--green); }
   .card.c-mid { border-left-color:var(--white-dimmer); }
   .c-meta { display:flex; align-items:center; gap:7px; margin-bottom:7px; }
-  .c-src { font-size:7.5px; letter-spacing:0.15em; color:var(--white-dimmer); text-transform:uppercase; }
-  .badge { font-size:7px; font-weight:700; letter-spacing:0.12em; padding:2px 5px; text-transform:uppercase; }
+  .c-src { font-size: 9.5px; letter-spacing:0.15em; color:var(--white-dimmer); text-transform:uppercase; }
+  .badge { font-size: 9px; font-weight:700; letter-spacing:0.12em; padding:2px 5px; text-transform:uppercase; }
   .b-live { background:var(--green); color:var(--black); }
   .b-crit { background:var(--red); color:var(--white); }
   .b-new  { background:var(--orange); color:var(--black); }
   .b-ver  { background:transparent; border:1px solid var(--orange); color:var(--orange); }
-  .c-time { margin-left:auto; font-size:8px; color:var(--white-dimmer); }
-  .c-title { font-size:11.5px; font-weight:700; letter-spacing:0.02em; text-transform:uppercase; line-height:1.35; margin-bottom:7px; }
-  .c-excerpt { font-size:9.5px; color:var(--white-dim); line-height:1.55; margin-bottom:9px; font-style:italic; }
+  .c-time { margin-left:auto; font-size: 10px; color:var(--white-dimmer); }
+  .c-title { font-size: 13.5px; font-weight:700; letter-spacing:0.02em; text-transform:uppercase; line-height:1.35; margin-bottom:7px; }
+  .c-excerpt { font-size: 11.5px; color:var(--white-dim); line-height:1.55; margin-bottom:9px; font-style:italic; }
   .map-box {
     width:100%; height:78px; background:var(--black-3); border:var(--border);
     display:flex; align-items:center; justify-content:center; margin-bottom:9px;
     position:relative; overflow:hidden;
   }
   .map-svg { width:100%; height:100%; opacity:0.38; }
-  .map-label { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-size:8px; letter-spacing:0.2em; color:var(--orange); text-transform:uppercase; }
+  .map-label { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-size: 10px; letter-spacing:0.2em; color:var(--orange); text-transform:uppercase; }
   .tags { display:flex; gap:5px; flex-wrap:wrap; margin-bottom:9px; }
-  .tag { font-size:7.5px; letter-spacing:0.1em; padding:2px 6px; text-transform:uppercase; border:1px solid var(--black-4); color:var(--white-dimmer); }
+  .tag { font-size: 9.5px; letter-spacing:0.1em; padding:2px 6px; text-transform:uppercase; border:1px solid var(--black-4); color:var(--white-dimmer); }
   .tag.or { border-color:var(--orange); color:var(--orange); }
   .tag.gr { border-color:var(--green); color:var(--green); }
   .tag.rd { border-color:var(--red); color:var(--red); }
   .card-actions { display:flex; gap:6px; }
   .c-action {
-    display:flex; align-items:center; gap:5px; font-size:8.5px;
+    display:flex; align-items:center; gap:5px; font-size: 10.5px;
     letter-spacing:0.12em; color:var(--orange); text-transform:uppercase;
     padding:7px 9px; background:rgba(232,85,0,0.07); border:1px solid rgba(232,85,0,0.18);
     flex:1; cursor:pointer; font-family:var(--font); transition:background 0.15s;
   }
   .c-action:hover { background:rgba(232,85,0,0.15); }
   .c-action .arr { margin-left:auto; }
+  .c-fav {
+    display:flex; align-items:center; justify-content:center;
+    width:34px; font-size:17px; background:transparent;
+    border:1px solid var(--black-4); color:var(--white-dimmer);
+    cursor:pointer; transition:border-color 0.15s, color 0.15s, background 0.15s; flex-shrink:0;
+  }
+  .c-fav:hover { border-color:var(--orange); color:var(--orange); }
+  .c-fav.saved { color:var(--orange); border-color:var(--orange); background:rgba(232,85,0,0.12); }
   .c-share {
-    display:flex; align-items:center; justify-content:center; gap:4px; font-size:8.5px;
+    display:flex; align-items:center; justify-content:center; gap:4px; font-size: 10.5px;
     letter-spacing:0.1em; color:var(--white-dim); text-transform:uppercase;
-    padding:7px 11px; background:transparent; border:1px solid var(--black-4);
+    padding:7px 10px; background:transparent; border:1px solid var(--black-4);
     cursor:pointer; font-family:var(--font); transition:border-color 0.15s, color 0.15s; flex-shrink:0;
   }
   .c-share:hover { border-color:var(--orange); color:var(--orange); }
-  .c-share svg { width:11px; height:11px; fill:currentColor; }
+  .c-share svg { width:13px; height:13px; fill:currentColor; }
 
   /* ── NODES ── */
   .page-hdr { padding:14px 16px; border-bottom:var(--border); background:var(--black-2); flex-shrink:0; }
-  .page-sub { font-size:8.5px; letter-spacing:0.2em; color:var(--white-dimmer); text-transform:uppercase; margin-bottom:1px; }
-  .page-title { font-size:17px; font-weight:700; }
+  .page-sub { font-size: 10.5px; letter-spacing:0.2em; color:var(--white-dimmer); text-transform:uppercase; margin-bottom:1px; }
+  .page-title { font-size: 19px; font-weight:700; }
   .search-row { display:flex; align-items:center; gap:8px; padding:9px 14px; border-bottom:var(--border); flex-shrink:0; }
-  .search-ico { color:var(--white-dimmer); font-size:13px; }
-  .s-input { flex:1; background:transparent; border:none; color:var(--white); font-family:var(--font); font-size:10.5px; outline:none; }
+  .search-ico { color:var(--white-dimmer); font-size:15px; }
+  .s-input { flex:1; background:transparent; border:none; color:var(--white); font-family:var(--font); font-size: 12.5px; outline:none; }
   .s-input::placeholder { color:var(--white-dimmer); }
-  .section-lbl { padding:7px 14px 3px; font-size:7.5px; letter-spacing:0.2em; color:var(--white-dimmer); text-transform:uppercase; border-bottom:var(--border); background:var(--black-2); }
-  .node-row { display:flex; align-items:center; gap:11px; padding:11px 14px; border-bottom:var(--border); cursor:pointer; transition:background 0.15s; }
+  .section-lbl { padding:7px 14px 3px; font-size: 9.5px; letter-spacing:0.2em; color:var(--white-dimmer); text-transform:uppercase; border-bottom:var(--border); background:var(--black-2); }
+  .node-row { display:flex; align-items:center; gap:10px; padding:10px 14px; border-bottom:var(--border); transition:background 0.15s; }
   .node-row:hover { background:var(--black-2); }
   .n-dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
   .n-on  { background:var(--green); box-shadow:0 0 4px var(--green); }
   .n-idle{ background:var(--orange); }
   .n-off { background:var(--white-dimmer); }
   .n-info { flex:1; min-width:0; }
-  .n-name { font-size:10.5px; color:var(--white); margin-bottom:1px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-  .n-url  { font-size:8.5px; color:var(--white-dimmer); letter-spacing:0.04em; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-  .n-count { font-size:8.5px; color:var(--orange); background:rgba(232,85,0,0.1); padding:2px 5px; flex-shrink:0; }
+  .n-name { font-size: 12.5px; color:var(--white); margin-bottom:1px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .n-url  { font-size: 10.5px; color:var(--white-dimmer); letter-spacing:0.04em; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .n-count { font-size: 10.5px; color:var(--orange); background:rgba(232,85,0,0.1); padding:2px 6px; flex-shrink:0; }
+  .n-actions { display:flex; gap:4px; flex-shrink:0; }
+  .n-btn {
+    font-family:var(--font); font-size:9px; letter-spacing:0.08em; text-transform:uppercase;
+    padding:4px 7px; background:transparent; border:1px solid var(--black-4);
+    color:var(--white-dimmer); cursor:pointer; transition:all 0.15s; white-space:nowrap;
+  }
+  .n-btn.conn { border-color:var(--orange); color:var(--orange); }
+  .n-btn.conn:hover { background:rgba(232,85,0,0.1); }
+  .n-btn.disc { border-color:var(--white-dimmer); color:var(--white-dimmer); }
+  .n-btn.disc:hover { border-color:var(--red); color:var(--red); }
+  .n-btn.del:hover { border-color:var(--red); color:var(--red); }
   .nodes-body { flex:1; overflow-y:auto; scrollbar-width:none; }
   .nodes-body::-webkit-scrollbar { display:none; }
   .add-btn {
     margin:11px 14px; display:flex; align-items:center; justify-content:center; gap:7px;
     padding:11px; background:transparent; border:1px dashed var(--black-4);
-    color:var(--white-dimmer); font-family:var(--font); font-size:9.5px;
+    color:var(--white-dimmer); font-family:var(--font); font-size: 11.5px;
     letter-spacing:0.12em; text-transform:uppercase; cursor:pointer;
     width:calc(100% - 28px); transition:border-color 0.15s, color 0.15s;
   }
@@ -241,8 +276,12 @@
   .settings-body { flex:1; overflow-y:auto; scrollbar-width:none; }
   .settings-body::-webkit-scrollbar { display:none; }
   .s-row { display:flex; align-items:center; justify-content:space-between; padding:13px 14px; border-bottom:var(--border); }
-  .s-lbl { font-size:10.5px; letter-spacing:0.04em; }
-  .s-val { font-size:9.5px; color:var(--orange); letter-spacing:0.08em; }
+  .s-lbl { font-size: 12.5px; letter-spacing:0.04em; }
+  .s-val { font-size: 11.5px; color:var(--orange); letter-spacing:0.08em; }
+  .s-val-link { font-size: 11.5px; color:var(--orange); letter-spacing:0.08em; cursor:pointer; }
+  .s-val-link:hover { color:var(--orange-hi); text-decoration:underline; }
+  .s-val-danger { font-size: 11.5px; color:var(--red); letter-spacing:0.08em; cursor:pointer; }
+  .s-val-danger:hover { color:var(--white); text-decoration:underline; }
   .toggle { width:34px; height:17px; background:var(--black-4); border:1px solid var(--black-4); position:relative; cursor:pointer; transition:background 0.15s; flex-shrink:0; }
   .toggle.on { background:var(--orange); border-color:var(--orange); }
   .toggle::after { content:''; position:absolute; top:2px; left:2px; width:11px; height:11px; background:var(--black); transition:transform 0.15s; }
@@ -258,30 +297,31 @@
   }
   @keyframes up { from{transform:translateY(100%)} to{transform:translateY(0)} }
   .m-hdr { display:flex; align-items:center; justify-content:space-between; padding:13px 14px; border-bottom:var(--border); flex-shrink:0; }
-  .m-lbl { font-size:8px; letter-spacing:0.2em; color:var(--orange); text-transform:uppercase; }
-  .m-close { background:transparent; border:var(--border); color:var(--white-dim); font-family:var(--font); font-size:10px; padding:4px 8px; cursor:pointer; transition:border-color 0.15s, color 0.15s; }
+  .m-lbl { font-size: 10px; letter-spacing:0.2em; color:var(--orange); text-transform:uppercase; }
+  .m-close { background:transparent; border:var(--border); color:var(--white-dim); font-family:var(--font); font-size: 12px; padding:4px 8px; cursor:pointer; transition:border-color 0.15s, color 0.15s; }
   .m-close:hover { border-color:var(--orange); color:var(--orange); }
   .m-body { flex:1; overflow-y:auto; padding:14px; scrollbar-width:thin; scrollbar-color:var(--black-4) transparent; }
-  .m-title { font-size:15px; font-weight:700; text-transform:uppercase; letter-spacing:0.025em; line-height:1.3; margin-bottom:9px; }
-  .m-meta { display:flex; gap:10px; font-size:8.5px; color:var(--white-dimmer); letter-spacing:0.1em; margin-bottom:14px; flex-wrap:wrap; }
+  .m-title { font-size: 17px; font-weight:700; text-transform:uppercase; letter-spacing:0.025em; line-height:1.3; margin-bottom:9px; }
+  .m-meta { display:flex; gap:10px; font-size: 10.5px; color:var(--white-dimmer); letter-spacing:0.1em; margin-bottom:14px; flex-wrap:wrap; }
   .ai-box { padding:11px; background:rgba(232,85,0,0.05); border-left:3px solid var(--orange); margin-bottom:14px; }
-  .ai-lbl { font-size:7px; letter-spacing:0.2em; color:var(--orange); text-transform:uppercase; margin-bottom:5px; }
-  .ai-txt { font-size:10.5px; line-height:1.6; color:var(--white-dim); font-style:italic; }
-  .m-text { font-size:10.5px; line-height:1.7; color:var(--white-dim); }
+  .ai-lbl { font-size: 9px; letter-spacing:0.2em; color:var(--orange); text-transform:uppercase; margin-bottom:5px; }
+  .ai-txt { font-size: 12.5px; line-height:1.6; color:var(--white-dim); font-style:italic; }
+  .m-text { font-size: 12.5px; line-height:1.7; color:var(--white-dim); }
   .m-foot { display:flex; gap:7px; padding:11px 14px; border-top:var(--border); flex-shrink:0; }
   .m-foot .btn-s { flex:1; margin:0; }
   .m-foot .btn-p { flex:1; }
+  .btn-fav-on { color:var(--orange) !important; border-color:var(--orange) !important; background:rgba(232,85,0,0.1) !important; }
 
   .af-overlay { position:fixed; inset:0; background:rgba(0,0,0,0.92); z-index:1100; display:none; align-items:center; justify-content:center; padding:18px; }
   .af-overlay.open { display:flex; }
   .af-box { width:100%; max-width:440px; background:var(--black-2); border:1px solid var(--orange); animation:zin 0.2s ease; }
   @keyframes zin { from{opacity:0;transform:scale(0.96)} to{opacity:1;transform:scale(1)} }
   .af-hdr { display:flex; align-items:center; justify-content:space-between; padding:13px 14px; border-bottom:var(--border); }
-  .af-title { font-size:10.5px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; }
+  .af-title { font-size: 12.5px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; }
   .af-body { padding:14px; }
   .f-grp { margin-bottom:13px; }
-  .f-lbl { display:block; font-size:7.5px; letter-spacing:0.15em; color:var(--white-dimmer); text-transform:uppercase; margin-bottom:5px; }
-  .f-inp { width:100%; background:var(--black); border:var(--border); color:var(--white); font-family:var(--font); font-size:10.5px; padding:9px 11px; outline:none; transition:border-color 0.15s; }
+  .f-lbl { display:block; font-size: 9.5px; letter-spacing:0.15em; color:var(--white-dimmer); text-transform:uppercase; margin-bottom:5px; }
+  .f-inp { width:100%; background:var(--black); border:var(--border); color:var(--white); font-family:var(--font); font-size: 12.5px; padding:9px 11px; outline:none; transition:border-color 0.15s; }
   .f-inp:focus { border-color:var(--orange); }
   .f-inp::placeholder { color:var(--white-dimmer); }
   .af-foot { display:flex; gap:7px; padding:11px 14px; border-top:var(--border); }
@@ -291,7 +331,7 @@
   #toast {
     position:fixed; bottom:72px; left:50%; transform:translateX(-50%);
     background:var(--black-2); border:1px solid var(--orange); color:var(--white);
-    font-family:var(--font); font-size:9.5px; letter-spacing:0.1em;
+    font-family:var(--font); font-size: 11.5px; letter-spacing:0.1em;
     padding:9px 15px; z-index:2000; white-space:nowrap; display:none;
     animation:zin 0.2s ease;
   }
@@ -301,8 +341,41 @@
 <body>
 <div id="app">
 
+<!-- ════════ LOGIN ════════ -->
+<div id="s-login" class="screen active">
+  <div class="login-wrap">
+    <div class="login-brand">
+      <div class="login-logo">GAZER<span class="p">.</span></div>
+      <div class="login-sub">NEURAL OBSERVATION INTERFACE</div>
+    </div>
+    <div class="login-mode" id="login-mode-label">ENTER ACCESS CODE</div>
+    <div class="login-err" id="login-err"></div>
+    <div class="pin-dots" id="pin-dots">
+      <div class="pin-dot" id="pd0"></div>
+      <div class="pin-dot" id="pd1"></div>
+      <div class="pin-dot" id="pd2"></div>
+      <div class="pin-dot" id="pd3"></div>
+    </div>
+    <div class="keypad">
+      <button class="k-btn" onclick="pinKey('1')">1</button>
+      <button class="k-btn" onclick="pinKey('2')">2</button>
+      <button class="k-btn" onclick="pinKey('3')">3</button>
+      <button class="k-btn" onclick="pinKey('4')">4</button>
+      <button class="k-btn" onclick="pinKey('5')">5</button>
+      <button class="k-btn" onclick="pinKey('6')">6</button>
+      <button class="k-btn" onclick="pinKey('7')">7</button>
+      <button class="k-btn" onclick="pinKey('8')">8</button>
+      <button class="k-btn" onclick="pinKey('9')">9</button>
+      <button class="k-btn k-del" onclick="pinBackspace()">⌫ DEL</button>
+      <button class="k-btn" onclick="pinKey('0')">0</button>
+      <button class="k-btn k-ok" onclick="pinSubmit()">OK ↵</button>
+    </div>
+    <div class="login-hint" id="login-hint" onclick="loginReset()">RESET ACCESS CODE</div>
+  </div>
+</div>
+
 <!-- ════════ LANDING ════════ -->
-<div id="s-landing" class="screen active">
+<div id="s-landing" class="screen">
   <div class="status-bar">
     <div class="s-left">
       <div class="dot"></div>
@@ -310,19 +383,17 @@
       <span style="color:var(--white-dimmer)">|</span>
       <span>SYSTEM.INITIALIZE_</span>
     </div>
-    <div>v0.9.1</div>
+    <div>v0.9.2</div>
   </div>
-
   <div class="landing-body">
     <div class="l-label">// NEURAL OBSERVATION INTERFACE</div>
     <div class="logo">GAZER<span class="p">.</span></div>
     <div class="logo-sub">ADVANCED_SIGNAL_PROCESSING / RSS AGGREGATOR</div>
     <div class="tagline">MONITOR_FEEDS &amp; INTEL_STREAMS<br>ACROSS ALL ACTIVE NODES</div>
-
     <div class="stats-grid">
       <div class="stat">
         <div class="stat-lbl">SYSTEM LATENCY</div>
-        <div class="stat-val" id="lat">12.4<span style="font-size:10px">ms</span></div>
+        <div class="stat-val" id="lat">12.4<span style="font-size:12px">ms</span></div>
         <div class="bar-track"><div class="bar-fill" id="lat-bar" style="width:12%"></div></div>
       </div>
       <div class="stat">
@@ -332,7 +403,7 @@
       </div>
       <div class="stat">
         <div class="stat-lbl">NETWORK LOAD</div>
-        <div class="stat-val" id="ld">42<span style="font-size:10px">%</span></div>
+        <div class="stat-val" id="ld">42<span style="font-size:12px">%</span></div>
         <div class="bar-track"><div class="bar-fill" id="ld-bar" style="width:42%"></div></div>
       </div>
       <div class="stat">
@@ -341,11 +412,9 @@
         <div class="bar-track"><div class="bar-fill g" style="width:5%"></div></div>
       </div>
     </div>
-
     <button class="btn-p" onclick="goFeed()">START OBSERVATION &nbsp;→</button>
     <button class="btn-s" onclick="openAF()">+ ADD_SIGNAL_SOURCE</button>
   </div>
-
   <nav class="bottom-nav">
     <button class="nav-btn active" onclick="go('landing',this)"><span class="nav-icon">⬡</span>DASHBOARD</button>
     <button class="nav-btn" onclick="go('feed',this)"><span class="nav-icon">◈</span>LOGS</button>
@@ -362,122 +431,22 @@
       <div><div class="os-title">GAZER OS</div><div class="os-sub">SIGNAL_PROCESSOR v0.9</div></div>
     </div>
     <div class="hdr-right">
-      <button class="ico-btn" onclick="toast('REFRESHING...')">↺</button>
+      <button class="ico-btn" onclick="renderFeed(STATE.currentTab);toast('FEED REFRESHED ↺')">↺</button>
       <button class="ico-btn" onclick="toast('FILTER — COMING SOON')">⚏</button>
       <button class="ico-btn" onclick="openAF()">+</button>
     </div>
   </div>
-
   <div class="tabs">
-    <button class="tab active" onclick="setTab(this)">ALL_SIGNALS</button>
-    <button class="tab" onclick="setTab(this)">INTEL_STREAM</button>
-    <button class="tab" onclick="setTab(this)">SECURITY</button>
-    <button class="tab" onclick="setTab(this)">FAVORITES</button>
+    <button class="tab active" onclick="setTab(this,'ALL_SIGNALS')">ALL_SIGNALS</button>
+    <button class="tab" onclick="setTab(this,'INTEL_STREAM')">INTEL_STREAM</button>
+    <button class="tab" onclick="setTab(this,'SECURITY')">SECURITY</button>
+    <button class="tab" onclick="setTab(this,'FAVORITES')">FAVORITES ★</button>
   </div>
-
   <div class="priority-bar">
     <div class="p-dot"></div>
     SIGNAL PRIORITY: HIGH — 3 CRITICAL ALERTS PENDING
   </div>
-
-  <div class="feed-list">
-
-    <div class="card c-crit" onclick="openArt(0)">
-      <div class="c-meta"><span class="c-src">SEC_INTEL</span><span class="badge b-crit">CRITICAL</span><span class="c-time">02:14</span></div>
-      <div class="c-title">CRITICAL SYSTEM BREACH DETECTED</div>
-      <div class="c-excerpt">Coordinated attack targeting financial infrastructure nodes across 12 regions. Immediate response protocol engaged.</div>
-      <div class="map-box">
-        <svg class="map-svg" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
-          <rect width="400" height="200" fill="#111"/>
-          <line x1="0" y1="100" x2="400" y2="100" stroke="#2A2A2A" stroke-width="0.5"/>
-          <line x1="200" y1="0" x2="200" y2="200" stroke="#2A2A2A" stroke-width="0.5"/>
-          <line x1="0" y1="50" x2="400" y2="50" stroke="#1A1A1A" stroke-width="0.5"/>
-          <line x1="0" y1="150" x2="400" y2="150" stroke="#1A1A1A" stroke-width="0.5"/>
-          <line x1="100" y1="0" x2="100" y2="200" stroke="#1A1A1A" stroke-width="0.5"/>
-          <line x1="300" y1="0" x2="300" y2="200" stroke="#1A1A1A" stroke-width="0.5"/>
-          <ellipse cx="90" cy="80" rx="45" ry="30" fill="#2A2A2A"/>
-          <ellipse cx="90" cy="130" rx="30" ry="35" fill="#2A2A2A"/>
-          <ellipse cx="200" cy="75" rx="40" ry="35" fill="#2A2A2A"/>
-          <ellipse cx="270" cy="85" rx="55" ry="28" fill="#2A2A2A"/>
-          <ellipse cx="310" cy="140" rx="20" ry="25" fill="#2A2A2A"/>
-          <ellipse cx="352" cy="88" rx="30" ry="20" fill="#2A2A2A"/>
-          <circle cx="90" cy="80" r="4" fill="none" stroke="#E85500" stroke-width="1.5"/>
-          <circle cx="90" cy="80" r="9" fill="none" stroke="#E85500" stroke-width="0.5" opacity="0.5"/>
-          <circle cx="200" cy="75" r="4" fill="none" stroke="#E85500" stroke-width="1.5"/>
-          <circle cx="200" cy="75" r="9" fill="none" stroke="#E85500" stroke-width="0.5" opacity="0.5"/>
-          <circle cx="270" cy="85" r="3" fill="none" stroke="#FF2D2D" stroke-width="1.5"/>
-          <circle cx="270" cy="85" r="7" fill="none" stroke="#FF2D2D" stroke-width="0.5" opacity="0.5"/>
-        </svg>
-        <div class="map-label">GLOBAL THREAT MAP</div>
-      </div>
-      <div class="tags"><span class="tag rd">THREAT: OMEGA</span><span class="tag or">SECURED: PARTIAL</span></div>
-      <div class="card-actions">
-        <button class="c-action" onclick="event.stopPropagation();openArt(0)">INVESTIGATE SIGNAL <span class="arr">→</span></button>
-        <button class="c-share" onclick="event.stopPropagation();shareArt(0)" title="Share signal">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11A2.99 2.99 0 0018 8a3 3 0 000-6 3 3 0 00-3 3c0 .24.04.47.09.7L8.04 9.81A2.99 2.99 0 006 9a3 3 0 000 6c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65a2.92 2.92 0 002.92 2.92A2.92 2.92 0 0021 19a2.92 2.92 0 00-2.92-2.92z"/></svg>
-          SHARE
-        </button>
-      </div>
-    </div>
-
-    <div class="card c-live" onclick="openArt(1)">
-      <div class="c-meta"><span class="c-src">TECH_FEED</span><span class="badge b-live">LIVE</span><span class="c-time">08:32</span></div>
-      <div class="c-title">GLOBAL DATA SYNC PROTOCOL UPGRADE</div>
-      <div class="c-excerpt">New distributed sync mechanism reduces latency by 340ms across all node clusters. Full rollout begins next cycle.</div>
-      <div class="tags"><span class="tag gr">VERIFIED</span><span class="tag">INFRA</span></div>
-      <div class="card-actions">
-        <button class="c-action" onclick="event.stopPropagation();openArt(1)">VIEW SIGNAL <span class="arr">→</span></button>
-        <button class="c-share" onclick="event.stopPropagation();shareArt(1)" title="Share signal">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11A2.99 2.99 0 0018 8a3 3 0 000-6 3 3 0 00-3 3c0 .24.04.47.09.7L8.04 9.81A2.99 2.99 0 006 9a3 3 0 000 6c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65a2.92 2.92 0 002.92 2.92A2.92 2.92 0 0021 19a2.92 2.92 0 00-2.92-2.92z"/></svg>
-          SHARE
-        </button>
-      </div>
-    </div>
-
-    <div class="card c-hi" onclick="openArt(2)">
-      <div class="c-meta"><span class="c-src">MARKET_INTEL</span><span class="badge b-new">NEW</span><span class="c-time">11:05</span></div>
-      <div class="c-title">NEURAL CHIP SHORTAGE IMMINENT</div>
-      <div class="c-excerpt">Supply chain disruption affecting next-gen AI hardware. Strategic reserves being activated across 3 major manufacturers.</div>
-      <div class="tags"><span class="tag or">HIGH_PRIORITY</span><span class="tag">SUPPLY_CHAIN</span></div>
-      <div class="card-actions">
-        <button class="c-action" onclick="event.stopPropagation();openArt(2)">VIEW SIGNAL <span class="arr">→</span></button>
-        <button class="c-share" onclick="event.stopPropagation();shareArt(2)" title="Share signal">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11A2.99 2.99 0 0018 8a3 3 0 000-6 3 3 0 00-3 3c0 .24.04.47.09.7L8.04 9.81A2.99 2.99 0 006 9a3 3 0 000 6c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65a2.92 2.92 0 002.92 2.92A2.92 2.92 0 0021 19a2.92 2.92 0 00-2.92-2.92z"/></svg>
-          SHARE
-        </button>
-      </div>
-    </div>
-
-    <div class="card c-mid" onclick="openArt(3)">
-      <div class="c-meta"><span class="c-src">SCIENCE_LOG</span><span class="badge b-ver">VERIFIED</span><span class="c-time">14:20</span></div>
-      <div class="c-title">QUANTUM ENTANGLEMENT COMMUNICATION BREAKTHROUGH</div>
-      <div class="c-excerpt">Research team achieves stable 10km entanglement link with 99.7% fidelity. Commercial applications within 18 months.</div>
-      <div class="tags"><span class="tag">QUANTUM</span><span class="tag">RESEARCH</span></div>
-      <div class="card-actions">
-        <button class="c-action" onclick="event.stopPropagation();openArt(3)">VIEW SIGNAL <span class="arr">→</span></button>
-        <button class="c-share" onclick="event.stopPropagation();shareArt(3)" title="Share signal">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11A2.99 2.99 0 0018 8a3 3 0 000-6 3 3 0 00-3 3c0 .24.04.47.09.7L8.04 9.81A2.99 2.99 0 006 9a3 3 0 000 6c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65a2.92 2.92 0 002.92 2.92A2.92 2.92 0 0021 19a2.92 2.92 0 00-2.92-2.92z"/></svg>
-          SHARE
-        </button>
-      </div>
-    </div>
-
-    <div class="card c-hi" onclick="openArt(4)">
-      <div class="c-meta"><span class="c-src">POLICY_WATCH</span><span class="badge b-new">NEW</span><span class="c-time">16:48</span></div>
-      <div class="c-title">AI GOVERNANCE FRAMEWORK ENTERS FINAL REVIEW</div>
-      <div class="c-excerpt">International coalition finalizes binding regulation for frontier AI systems. Implementation timeline set for Q2.</div>
-      <div class="tags"><span class="tag or">REGULATORY</span><span class="tag">AI_POLICY</span></div>
-      <div class="card-actions">
-        <button class="c-action" onclick="event.stopPropagation();openArt(4)">VIEW SIGNAL <span class="arr">→</span></button>
-        <button class="c-share" onclick="event.stopPropagation();shareArt(4)" title="Share signal">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11A2.99 2.99 0 0018 8a3 3 0 000-6 3 3 0 00-3 3c0 .24.04.47.09.7L8.04 9.81A2.99 2.99 0 006 9a3 3 0 000 6c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65a2.92 2.92 0 002.92 2.92A2.92 2.92 0 0021 19a2.92 2.92 0 00-2.92-2.92z"/></svg>
-          SHARE
-        </button>
-      </div>
-    </div>
-
-  </div>
-
+  <div class="feed-list" id="feed-list-body"><!-- dynamic --></div>
   <nav class="bottom-nav">
     <button class="nav-btn" onclick="go('landing',this)"><span class="nav-icon">⬡</span>DASHBOARD</button>
     <button class="nav-btn active" onclick="go('feed',this)"><span class="nav-icon">◈</span>LOGS</button>
@@ -490,25 +459,19 @@
 <div id="s-nodes" class="screen">
   <div class="page-hdr"><div class="page-sub">// CONNECTED NODES</div><div class="page-title">SIGNAL SOURCES</div></div>
   <div class="status-bar">
-    <div class="s-left"><div class="dot"></div><span>8 ACTIVE</span><span style="color:var(--white-dimmer)">|</span><div class="dot or"></div><span>2 IDLE</span></div>
+    <div class="s-left">
+      <div class="dot"></div><span id="nodes-on-count">— ACTIVE</span>
+      <span style="color:var(--white-dimmer)">|</span>
+      <div class="dot or"></div><span id="nodes-idle-count">— IDLE</span>
+    </div>
     <div>SYNC: 3m AGO</div>
   </div>
   <div class="search-row">
     <span class="search-ico">⌕</span>
-    <input class="s-input" type="text" placeholder="SEARCH_NODES...">
+    <input class="s-input" id="node-search" type="text" placeholder="SEARCH_NODES..." oninput="renderNodes(this.value)">
   </div>
   <div class="nodes-body">
-    <div class="section-lbl">// TECH &amp; SCIENCE</div>
-    <div class="node-row"><div class="n-dot n-on"></div><div class="n-info"><div class="n-name">The Verge</div><div class="n-url">theverge.com/rss/index.xml</div></div><div class="n-count">12</div></div>
-    <div class="node-row"><div class="n-dot n-on"></div><div class="n-info"><div class="n-name">Ars Technica</div><div class="n-url">feeds.arstechnica.com/arstechnica</div></div><div class="n-count">8</div></div>
-    <div class="node-row"><div class="n-dot n-idle"></div><div class="n-info"><div class="n-name">MIT Technology Review</div><div class="n-url">technologyreview.com/feed/</div></div><div class="n-count">5</div></div>
-    <div class="section-lbl">// SECURITY &amp; INTEL</div>
-    <div class="node-row"><div class="n-dot n-on"></div><div class="n-info"><div class="n-name">Krebs on Security</div><div class="n-url">krebsonsecurity.com/feed/</div></div><div class="n-count">3</div></div>
-    <div class="node-row"><div class="n-dot n-on"></div><div class="n-info"><div class="n-name">Hacker News</div><div class="n-url">news.ycombinator.com/rss</div></div><div class="n-count">30</div></div>
-    <div class="section-lbl">// GLOBAL MARKETS</div>
-    <div class="node-row"><div class="n-dot n-on"></div><div class="n-info"><div class="n-name">Reuters Tech</div><div class="n-url">feeds.reuters.com/reuters/tech</div></div><div class="n-count">9</div></div>
-    <div class="node-row"><div class="n-dot n-idle"></div><div class="n-info"><div class="n-name">Bloomberg Tech</div><div class="n-url">bloomberg.com/feeds/technology</div></div><div class="n-count">0</div></div>
-    <button class="add-btn" onclick="openAF()">+ CONNECT NEW NODE</button>
+    <div id="nodes-list"><!-- dynamic --></div>
   </div>
   <nav class="bottom-nav">
     <button class="nav-btn" onclick="go('landing',this)"><span class="nav-icon">⬡</span>DASHBOARD</button>
@@ -522,7 +485,7 @@
 <div id="s-settings" class="screen">
   <div class="page-hdr"><div class="page-sub">// SYSTEM CONFIGURATION</div><div class="page-title">SETTINGS</div></div>
   <div class="status-bar">
-    <div class="s-left"><div class="dot"></div><span>GAZER OS v0.9.1</span></div>
+    <div class="s-left"><div class="dot"></div><span>GAZER OS v0.9.2</span></div>
     <div>BUILD 20260308</div>
   </div>
   <div class="settings-body">
@@ -535,13 +498,18 @@
     <div class="s-row"><span class="s-lbl">COMPACT_MODE</span><div class="toggle" onclick="this.classList.toggle('on')"></div></div>
     <div class="s-row"><span class="s-lbl">SCANLINES_OVERLAY</span><div class="toggle on" onclick="this.classList.toggle('on')"></div></div>
     <div class="s-row"><span class="s-lbl">ACCENT_COLOR</span><span class="s-val">ORANGE #E85500</span></div>
-    <div class="section-lbl">// DATA &amp; SYNC</div>
+    <div class="section-lbl">// DATA &amp; EXPORT</div>
     <div class="s-row"><span class="s-lbl">PUSH_NOTIFICATIONS</span><div class="toggle" onclick="this.classList.toggle('on')"></div></div>
     <div class="s-row"><span class="s-lbl">OFFLINE_CACHE</span><div class="toggle on" onclick="this.classList.toggle('on')"></div></div>
-    <div class="s-row"><span class="s-lbl">EXPORT_OPML</span><span class="s-val" style="cursor:pointer;text-decoration:underline" onclick="toast('OPML_EXPORT.xml — 7 nodes')">EXPORT →</span></div>
+    <div class="s-row"><span class="s-lbl">EXPORT_OPML_XML</span><span class="s-val-link" onclick="exportBackup('xml')">DOWNLOAD →</span></div>
+    <div class="s-row"><span class="s-lbl">EXPORT_MARKDOWN</span><span class="s-val-link" onclick="exportBackup('md')">DOWNLOAD →</span></div>
     <div class="section-lbl">// ACCOUNT</div>
     <div class="s-row"><span class="s-lbl">USER_ID</span><span class="s-val">VESPER_01</span></div>
     <div class="s-row"><span class="s-lbl">SYNC_BACKEND</span><span class="s-val">SUPABASE</span></div>
+    <div class="s-row"><span class="s-lbl">FAVORITES_SAVED</span><span class="s-val" id="fav-count">0</span></div>
+    <div class="section-lbl">// SECURITY</div>
+    <div class="s-row"><span class="s-lbl">CHANGE_ACCESS_CODE</span><span class="s-val-link" onclick="changePin()">UPDATE →</span></div>
+    <div class="s-row"><span class="s-lbl">LOCK_SESSION</span><span class="s-val-danger" onclick="logout()">LOCK NOW →</span></div>
   </div>
   <nav class="bottom-nav">
     <button class="nav-btn" onclick="go('landing',this)"><span class="nav-icon">⬡</span>DASHBOARD</button>
@@ -557,12 +525,12 @@
     <div class="m-hdr"><span class="m-lbl">// SIGNAL DETAIL</span><button class="m-close" onclick="closeArt()">✕ CLOSE</button></div>
     <div class="m-body" id="art-body"></div>
     <div class="m-foot">
-      <button class="btn-s" onclick="toast('SAVED TO FAVORITES ★')">★ SAVE</button>
+      <button class="btn-s" id="fav-btn" onclick="toggleFavModal()">★ SAVE</button>
       <button class="btn-s" id="modal-share-btn" onclick="shareArtModal()" style="gap:5px">
-        <svg viewBox="0 0 24 24" style="width:11px;height:11px;fill:currentColor;flex-shrink:0"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11A2.99 2.99 0 0018 8a3 3 0 000-6 3 3 0 00-3 3c0 .24.04.47.09.7L8.04 9.81A2.99 2.99 0 006 9a3 3 0 000 6c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65a2.92 2.92 0 002.92 2.92A2.92 2.92 0 0021 19a2.92 2.92 0 00-2.92-2.92z"/></svg>
+        <svg viewBox="0 0 24 24" style="width:13px;height:13px;fill:currentColor;flex-shrink:0"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11A2.99 2.99 0 0018 8a3 3 0 000-6 3 3 0 00-3 3c0 .24.04.47.09.7L8.04 9.81A2.99 2.99 0 006 9a3 3 0 000 6c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65a2.92 2.92 0 002.92 2.92A2.92 2.92 0 0021 19a2.92 2.92 0 00-2.92-2.92z"/></svg>
         SHARE
       </button>
-      <button class="btn-p" onclick="toast('OPENING IN BROWSER...')">READ FULL →</button>
+      <button class="btn-p" onclick="openArticleLink()">READ FULL →</button>
     </div>
   </div>
 </div>
@@ -573,8 +541,8 @@
     <div class="af-hdr"><span class="af-title">+ CONNECT NODE</span><button class="m-close" onclick="closeAF()">✕</button></div>
     <div class="af-body">
       <div class="f-grp"><label class="f-lbl">RSS / ATOM FEED URL</label><input class="f-inp" type="url" placeholder="https://example.com/feed.xml" id="f-url"></div>
-      <div class="f-grp"><label class="f-lbl">NODE LABEL (OPTIONAL)</label><input class="f-inp" type="text" placeholder="MY_CUSTOM_FEED"></div>
-      <div class="f-grp"><label class="f-lbl">CATEGORY</label><input class="f-inp" type="text" placeholder="TECH / SECURITY / SCIENCE"></div>
+      <div class="f-grp"><label class="f-lbl">NODE LABEL (OPTIONAL)</label><input class="f-inp" type="text" placeholder="MY_CUSTOM_FEED" id="f-name"></div>
+      <div class="f-grp"><label class="f-lbl">CATEGORY</label><input class="f-inp" type="text" placeholder="TECH / SECURITY / SCIENCE" id="f-cat"></div>
     </div>
     <div class="af-foot">
       <button class="btn-s" onclick="closeAF()">CANCEL</button>
@@ -587,107 +555,451 @@
 </div>
 
 <script>
+// ─── STATE ────────────────────────────────────────────────
+const STATE = {
+  pinBuffer: '',
+  pinMode: 'enter',   // 'enter' | 'set' | 'confirm'
+  pinTemp: '',
+  nodes: [
+    { id:1, name:'The Verge',           url:'theverge.com/rss/index.xml',          cat:'TECH & SCIENCE',   status:'on',   count:12 },
+    { id:2, name:'Ars Technica',         url:'feeds.arstechnica.com/arstechnica',   cat:'TECH & SCIENCE',   status:'on',   count:8  },
+    { id:3, name:'MIT Technology Review',url:'technologyreview.com/feed/',          cat:'TECH & SCIENCE',   status:'idle', count:5  },
+    { id:4, name:'Krebs on Security',    url:'krebsonsecurity.com/feed/',           cat:'SECURITY & INTEL', status:'on',   count:3  },
+    { id:5, name:'Hacker News',          url:'news.ycombinator.com/rss',            cat:'SECURITY & INTEL', status:'on',   count:30 },
+    { id:6, name:'Reuters Tech',         url:'feeds.reuters.com/reuters/tech',      cat:'GLOBAL MARKETS',   status:'on',   count:9  },
+    { id:7, name:'Bloomberg Tech',       url:'bloomberg.com/feeds/technology',      cat:'GLOBAL MARKETS',   status:'idle', count:0  },
+  ],
+  nextNodeId: 8,
+  favorites: new Set(JSON.parse(localStorage.getItem('gazer_favs') || '[]')),
+  currentArticle: 0,
+  currentTab: 'ALL_SIGNALS',
+};
+
+// ─── ARTICLES ─────────────────────────────────────────────
 const ARTS = [
-  { src:'SEC_INTEL', bdg:'CRITICAL', time:'02:14 UTC', title:'CRITICAL SYSTEM BREACH DETECTED',
-    sum:'AI ANALYSIS: Coordinated multi-vector attack against global financial infrastructure. High confidence attribution to state-sponsored actor. Mitigation protocols deployed across primary nodes.',
+  { id:0, src:'SEC_INTEL',   bdg:'CRITICAL', time:'02:14 UTC',
+    url:'https://krebsonsecurity.com',
+    title:'CRITICAL SYSTEM BREACH DETECTED',
+    sum:'AI ANALYSIS: Coordinated multi-vector attack against global financial infrastructure. High confidence attribution to state-sponsored actor. Mitigation protocols deployed.',
     body:'Security analysts have confirmed a coordinated cyberattack targeting financial infrastructure across 12 geographic regions. The attack vector combines zero-day exploits with social engineering. Emergency response teams are working to contain the breach. Preliminary reports suggest exfiltration of approximately 2.3TB of encrypted transaction data before detection.',
-    tags:['THREAT: OMEGA','SECURED: PARTIAL'] },
-  { src:'TECH_FEED', bdg:'LIVE', time:'08:32 UTC', title:'GLOBAL DATA SYNC PROTOCOL UPGRADE',
-    sum:'AI ANALYSIS: Major performance improvement in distributed systems. The 340ms latency reduction represents a 40% improvement over baseline. Implementation risk: LOW.',
+    tags:['THREAT: OMEGA','SECURED: PARTIAL'], cardClass:'c-crit', badgeCls:'b-crit', mapBox:true },
+  { id:1, src:'TECH_FEED',   bdg:'LIVE',     time:'08:32 UTC',
+    url:'https://theverge.com',
+    title:'GLOBAL DATA SYNC PROTOCOL UPGRADE',
+    sum:'AI ANALYSIS: Major performance improvement in distributed systems. 340ms latency reduction represents 40% improvement over baseline. Implementation risk: LOW.',
     body:'The new distributed synchronization mechanism developed by a consortium of 14 technology companies has entered production deployment. Benchmarks show consistent 340ms latency reduction across all tested configurations. The protocol uses a novel consensus mechanism that eliminates centralized coordination.',
-    tags:['VERIFIED','INFRA'] },
-  { src:'MARKET_INTEL', bdg:'NEW', time:'11:05 UTC', title:'NEURAL CHIP SHORTAGE IMMINENT',
+    tags:['VERIFIED','INFRA'], cardClass:'c-live', badgeCls:'b-live' },
+  { id:2, src:'MARKET_INTEL',bdg:'NEW',      time:'11:05 UTC',
+    url:'https://reuters.com/technology',
+    title:'NEURAL CHIP SHORTAGE IMMINENT',
     sum:'AI ANALYSIS: Supply chain stress indicators suggest shortage within 60-90 days. Three major manufacturers showing reduced output. Impact on AI model training: SIGNIFICANT.',
-    body:'Industry analysts warn of a significant shortage in neural processing units expected within the next quarter. The shortage stems from increased demand from AI model training and disruptions to raw material supply chains. Strategic reserves are being activated, but allocation constraints are expected through at least Q3.',
-    tags:['HIGH_PRIORITY','SUPPLY_CHAIN'] },
-  { src:'SCIENCE_LOG', bdg:'VERIFIED', time:'14:20 UTC', title:'QUANTUM ENTANGLEMENT COMMUNICATION BREAKTHROUGH',
+    body:'Industry analysts warn of a significant shortage in neural processing units expected within the next quarter. The shortage stems from increased demand from AI model training and disruptions to raw material supply chains. Strategic reserves are being activated through at least Q3.',
+    tags:['HIGH_PRIORITY','SUPPLY_CHAIN'], cardClass:'c-hi', badgeCls:'b-new' },
+  { id:3, src:'SCIENCE_LOG', bdg:'VERIFIED', time:'14:20 UTC',
+    url:'https://technologyreview.com',
+    title:'QUANTUM ENTANGLEMENT COMMUNICATION BREAKTHROUGH',
     sum:'AI ANALYSIS: Peer-reviewed result confirmed by 3 independent labs. 99.7% fidelity at 10km is a new world record. Commercial viability timeline: 18 months.',
     body:'A joint research team has achieved stable quantum entanglement across a 10km fiber optic link with 99.7% fidelity — a new world record. The achievement unlocks possibilities for theoretically unbreakable quantum-encrypted communications. The team expects to scale to 50km within 6 months.',
-    tags:['QUANTUM','RESEARCH'] },
-  { src:'POLICY_WATCH', bdg:'NEW', time:'16:48 UTC', title:'AI GOVERNANCE FRAMEWORK ENTERS FINAL REVIEW',
+    tags:['QUANTUM','RESEARCH'], cardClass:'c-mid', badgeCls:'b-ver' },
+  { id:4, src:'POLICY_WATCH',bdg:'NEW',      time:'16:48 UTC',
+    url:'https://arstechnica.com',
+    title:'AI GOVERNANCE FRAMEWORK ENTERS FINAL REVIEW',
     sum:'AI ANALYSIS: International coalition of 47 nations. Framework covers frontier AI above 10^25 FLOPs. Enforcement: binding with sanctions. Industry impact: HIGH.',
     body:'An international coalition representing 47 nations has finalized a comprehensive governance framework for frontier AI systems. The binding agreement establishes compute thresholds, mandatory safety evaluations, incident reporting requirements, and emergency shutdown protocols. Implementation begins Q2.',
-    tags:['REGULATORY','AI_POLICY'] }
+    tags:['REGULATORY','AI_POLICY'], cardClass:'c-hi', badgeCls:'b-new' }
 ];
 
+// ─── LOGIN ────────────────────────────────────────────────
+function initApp() {
+  const stored = localStorage.getItem('gazer_pin');
+  if (!stored) {
+    STATE.pinMode = 'set';
+    document.getElementById('login-mode-label').textContent = 'INITIALIZE ACCESS CODE';
+    document.getElementById('login-hint').style.display = 'none';
+  } else {
+    STATE.pinMode = 'enter';
+    document.getElementById('login-mode-label').textContent = 'ENTER ACCESS CODE';
+    document.getElementById('login-hint').style.display = 'block';
+  }
+  updatePinDots();
+}
+
+function pinKey(d) {
+  if (STATE.pinBuffer.length >= 4) return;
+  STATE.pinBuffer += d;
+  updatePinDots();
+  if (STATE.pinBuffer.length === 4) setTimeout(pinSubmit, 180);
+}
+
+function pinBackspace() {
+  STATE.pinBuffer = STATE.pinBuffer.slice(0, -1);
+  updatePinDots();
+  document.getElementById('login-err').textContent = '';
+}
+
+function updatePinDots() {
+  for (let i = 0; i < 4; i++) {
+    const d = document.getElementById('pd' + i);
+    d.classList.toggle('filled', i < STATE.pinBuffer.length);
+    d.classList.remove('err');
+  }
+}
+
+function pinError() {
+  for (let i = 0; i < 4; i++) document.getElementById('pd' + i).classList.add('err');
+  setTimeout(() => { STATE.pinBuffer = ''; updatePinDots(); }, 600);
+}
+
+function pinSubmit() {
+  const buf = STATE.pinBuffer;
+  if (buf.length < 4) return;
+  if (STATE.pinMode === 'set') {
+    STATE.pinTemp = buf;
+    STATE.pinMode = 'confirm';
+    STATE.pinBuffer = '';
+    document.getElementById('login-mode-label').textContent = 'CONFIRM ACCESS CODE';
+    document.getElementById('login-err').textContent = '';
+    updatePinDots();
+  } else if (STATE.pinMode === 'confirm') {
+    if (buf === STATE.pinTemp) {
+      localStorage.setItem('gazer_pin', btoa(buf));
+      STATE.pinBuffer = '';
+      unlockApp();
+    } else {
+      document.getElementById('login-err').textContent = '// CODES DO NOT MATCH — RETRY';
+      STATE.pinMode = 'set';
+      STATE.pinTemp = '';
+      pinError();
+      setTimeout(() => { document.getElementById('login-mode-label').textContent = 'INITIALIZE ACCESS CODE'; }, 650);
+    }
+  } else {
+    const stored = localStorage.getItem('gazer_pin');
+    if (stored && atob(stored) === buf) {
+      STATE.pinBuffer = '';
+      unlockApp();
+    } else {
+      document.getElementById('login-err').textContent = '// INVALID ACCESS CODE';
+      pinError();
+    }
+  }
+}
+
+function unlockApp() {
+  document.getElementById('login-err').textContent = '';
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById('s-landing').classList.add('active');
+  renderFeed('ALL_SIGNALS');
+  renderNodes();
+  updateFavCount();
+}
+
+function logout() {
+  STATE.pinBuffer = '';
+  STATE.pinMode = 'enter';
+  document.getElementById('login-mode-label').textContent = 'ENTER ACCESS CODE';
+  document.getElementById('login-err').textContent = '';
+  document.getElementById('login-hint').style.display = 'block';
+  updatePinDots();
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById('s-login').classList.add('active');
+}
+
+function changePin() {
+  STATE.pinBuffer = '';
+  STATE.pinMode = 'set';
+  STATE.pinTemp = '';
+  document.getElementById('login-mode-label').textContent = 'SET NEW ACCESS CODE';
+  document.getElementById('login-err').textContent = '';
+  document.getElementById('login-hint').style.display = 'none';
+  updatePinDots();
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById('s-login').classList.add('active');
+}
+
+function loginReset() {
+  localStorage.removeItem('gazer_pin');
+  STATE.pinBuffer = '';
+  STATE.pinMode = 'set';
+  STATE.pinTemp = '';
+  document.getElementById('login-mode-label').textContent = 'INITIALIZE ACCESS CODE';
+  document.getElementById('login-err').textContent = '// PREVIOUS CODE CLEARED';
+  document.getElementById('login-hint').style.display = 'none';
+  updatePinDots();
+}
+
+// ─── NAVIGATION ───────────────────────────────────────────
 function go(name, btn) {
-  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
-  document.getElementById('s-'+name).classList.add('active');
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById('s-' + name).classList.add('active');
+  if (name === 'nodes') renderNodes(document.getElementById('node-search')?.value || '');
+  if (name === 'feed')  renderFeed(STATE.currentTab);
   const idx = Array.from(btn.parentElement.children).indexOf(btn);
-  document.querySelectorAll('.bottom-nav').forEach(nav=>{
-    nav.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.bottom-nav').forEach(nav => {
+    nav.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
     const items = nav.querySelectorAll('.nav-btn');
-    if(items[idx]) items[idx].classList.add('active');
+    if (items[idx]) items[idx].classList.add('active');
   });
 }
+
 function goFeed() {
-  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
   document.getElementById('s-feed').classList.add('active');
-  document.querySelectorAll('.nav-btn:nth-child(2)').forEach(b=>b.classList.add('active'));
-  document.querySelectorAll('.nav-btn:nth-child(1),.nav-btn:nth-child(3),.nav-btn:nth-child(4)').forEach(b=>b.classList.remove('active'));
+  renderFeed(STATE.currentTab);
+  document.querySelectorAll('.nav-btn:nth-child(2)').forEach(b => b.classList.add('active'));
+  document.querySelectorAll('.nav-btn:nth-child(1),.nav-btn:nth-child(3),.nav-btn:nth-child(4)').forEach(b => b.classList.remove('active'));
 }
-function setTab(btn) {
-  btn.parentElement.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+
+function setTab(btn, tabName) {
+  btn.parentElement.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
   btn.classList.add('active');
+  STATE.currentTab = tabName;
+  renderFeed(tabName);
 }
-let _currentArtIdx = 0;
+
+// ─── FEED RENDERING ───────────────────────────────────────
+const SHARE_SVG = `<svg viewBox="0 0 24 24" style="width:13px;height:13px;fill:currentColor;flex-shrink:0"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11A2.99 2.99 0 0018 8a3 3 0 000-6 3 3 0 00-3 3c0 .24.04.47.09.7L8.04 9.81A2.99 2.99 0 006 9a3 3 0 000 6c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65a2.92 2.92 0 002.92 2.92A2.92 2.92 0 0021 19a2.92 2.92 0 00-2.92-2.92z"/></svg>`;
+const MAP_BOX = `<div class="map-box"><svg class="map-svg" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="200" fill="#111"/><line x1="0" y1="100" x2="400" y2="100" stroke="#2A2A2A" stroke-width="0.5"/><line x1="200" y1="0" x2="200" y2="200" stroke="#2A2A2A" stroke-width="0.5"/><line x1="0" y1="50" x2="400" y2="50" stroke="#1A1A1A" stroke-width="0.5"/><line x1="0" y1="150" x2="400" y2="150" stroke="#1A1A1A" stroke-width="0.5"/><line x1="100" y1="0" x2="100" y2="200" stroke="#1A1A1A" stroke-width="0.5"/><line x1="300" y1="0" x2="300" y2="200" stroke="#1A1A1A" stroke-width="0.5"/><ellipse cx="90" cy="80" rx="45" ry="30" fill="#2A2A2A"/><ellipse cx="90" cy="130" rx="30" ry="35" fill="#2A2A2A"/><ellipse cx="200" cy="75" rx="40" ry="35" fill="#2A2A2A"/><ellipse cx="270" cy="85" rx="55" ry="28" fill="#2A2A2A"/><ellipse cx="310" cy="140" rx="20" ry="25" fill="#2A2A2A"/><ellipse cx="352" cy="88" rx="30" ry="20" fill="#2A2A2A"/><circle cx="90" cy="80" r="4" fill="none" stroke="#E85500" stroke-width="1.5"/><circle cx="90" cy="80" r="9" fill="none" stroke="#E85500" stroke-width="0.5" opacity="0.5"/><circle cx="200" cy="75" r="4" fill="none" stroke="#E85500" stroke-width="1.5"/><circle cx="200" cy="75" r="9" fill="none" stroke="#E85500" stroke-width="0.5" opacity="0.5"/><circle cx="270" cy="85" r="3" fill="none" stroke="#FF2D2D" stroke-width="1.5"/><circle cx="270" cy="85" r="7" fill="none" stroke="#FF2D2D" stroke-width="0.5" opacity="0.5"/></svg><div class="map-label">GLOBAL THREAT MAP</div></div>`;
+
+function renderFeed(tab) {
+  const container = document.getElementById('feed-list-body');
+  let items = ARTS;
+  if (tab === 'FAVORITES') {
+    items = ARTS.filter(a => STATE.favorites.has(a.id));
+  } else if (tab === 'SECURITY') {
+    items = ARTS.filter(a => a.src.includes('SEC') || a.tags.some(t => t.includes('THREAT')));
+  } else if (tab === 'INTEL_STREAM') {
+    items = ARTS.filter(a => a.bdg !== 'CRITICAL');
+  }
+  if (items.length === 0) {
+    container.innerHTML = `<div style="padding:40px 14px;text-align:center;color:var(--white-dimmer);font-size:12px;letter-spacing:0.15em">${tab === 'FAVORITES' ? '// NO SAVED SIGNALS YET<br><br>PRESS ★ ON ANY SIGNAL TO SAVE' : '// NO SIGNALS IN THIS STREAM'}</div>`;
+    return;
+  }
+  container.innerHTML = items.map(a => {
+    const isFav = STATE.favorites.has(a.id);
+    const tagsHtml = a.tags.map(t => {
+      const cls = t.includes('THREAT') || t.includes('CRITICAL') ? 'rd'
+                : t.includes('VERIFIED') ? 'gr'
+                : (t.includes('PRIORITY') || t.includes('REGULATORY') || t.includes('HIGH')) ? 'or' : '';
+      return `<span class="tag ${cls}">${t}</span>`;
+    }).join('');
+    const excerpt = a.sum.replace(/^AI ANALYSIS:\s*/i, '').split('.')[0] + '.';
+    return `<div class="card ${a.cardClass}" onclick="openArt(${a.id})">
+      <div class="c-meta"><span class="c-src">${a.src}</span><span class="badge ${a.badgeCls}">${a.bdg}</span><span class="c-time">${a.time}</span></div>
+      <div class="c-title">${a.title}</div>
+      <div class="c-excerpt">${excerpt}</div>
+      ${a.mapBox ? MAP_BOX : ''}
+      <div class="tags">${tagsHtml}</div>
+      <div class="card-actions">
+        <button class="c-action" onclick="event.stopPropagation();openArt(${a.id})">VIEW SIGNAL <span class="arr">→</span></button>
+        <button class="c-fav${isFav ? ' saved' : ''}" onclick="event.stopPropagation();toggleFavorite(${a.id})" title="${isFav ? 'Remove from favorites' : 'Save to favorites'}">★</button>
+        <button class="c-share" onclick="event.stopPropagation();shareArt(${a.id})" title="Share signal">${SHARE_SVG}</button>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// ─── ARTICLES ─────────────────────────────────────────────
 function openArt(i) {
-  _currentArtIdx = i;
-  const a=ARTS[i];
-  const badgeCls = a.bdg==='LIVE'?'b-live':a.bdg==='CRITICAL'?'b-crit':'b-new';
-  document.getElementById('art-body').innerHTML=`
+  STATE.currentArticle = i;
+  const a = ARTS[i];
+  const isFav = STATE.favorites.has(i);
+  document.getElementById('art-body').innerHTML = `
     <div class="m-title">${a.title}</div>
-    <div class="m-meta"><span>${a.src}</span><span>|</span><span>${a.time}</span><span>|</span><span class="badge ${badgeCls}">${a.bdg}</span></div>
+    <div class="m-meta"><span>${a.src}</span><span>|</span><span>${a.time}</span><span>|</span><span class="badge ${a.badgeCls}">${a.bdg}</span></div>
     <div class="ai-box"><div class="ai-lbl">// AI_SIGNAL_ANALYSIS</div><div class="ai-txt">${a.sum}</div></div>
     <div class="m-text">${a.body}</div>
     <div class="tags" style="margin-top:14px">${a.tags.map(t=>`<span class="tag or">${t}</span>`).join('')}</div>`;
+  const favBtn = document.getElementById('fav-btn');
+  favBtn.textContent = isFav ? '★ SAVED' : '★ SAVE';
+  favBtn.classList.toggle('btn-fav-on', isFav);
   document.getElementById('ov-art').classList.add('open');
 }
+
+function closeArt() { document.getElementById('ov-art').classList.remove('open'); }
+
+function openArticleLink() {
+  const a = ARTS[STATE.currentArticle];
+  if (a && a.url) window.open(a.url, '_blank');
+}
+
+// ─── FAVORITES ────────────────────────────────────────────
+function toggleFavorite(i) {
+  if (STATE.favorites.has(i)) {
+    STATE.favorites.delete(i);
+    toast('REMOVED FROM FAVORITES');
+  } else {
+    STATE.favorites.add(i);
+    toast('SAVED TO FAVORITES ★');
+  }
+  localStorage.setItem('gazer_favs', JSON.stringify([...STATE.favorites]));
+  renderFeed(STATE.currentTab);
+  updateFavCount();
+}
+
+function toggleFavModal() {
+  toggleFavorite(STATE.currentArticle);
+  const isFav = STATE.favorites.has(STATE.currentArticle);
+  const btn = document.getElementById('fav-btn');
+  btn.textContent = isFav ? '★ SAVED' : '★ SAVE';
+  btn.classList.toggle('btn-fav-on', isFav);
+}
+
+function updateFavCount() {
+  const el = document.getElementById('fav-count');
+  if (el) el.textContent = STATE.favorites.size;
+}
+
 function shareArt(i) {
   const a = ARTS[i];
-  const shareText = `[GAZER SIGNAL] ${a.title} — ${a.src} @ ${a.time}`;
+  const txt = `[GAZER SIGNAL] ${a.title} — ${a.src} @ ${a.time} — ${a.url}`;
   if (navigator.share) {
-    navigator.share({ title: a.title, text: shareText, url: window.location.href })
-      .then(() => toast('SIGNAL SHARED ↗'))
-      .catch(() => {});
+    navigator.share({ title: a.title, text: txt, url: a.url }).then(() => toast('SIGNAL SHARED ↗')).catch(() => {});
   } else {
-    navigator.clipboard.writeText(shareText).then(() => {
-      toast('SIGNAL COPIED TO CLIPBOARD ↗');
-    }).catch(() => {
-      toast('SHARE: ' + shareText.slice(0, 40) + '...');
-    });
+    navigator.clipboard.writeText(txt).then(() => toast('COPIED TO CLIPBOARD ↗')).catch(() => toast('SHARE: ' + txt.slice(0, 40) + '...'));
   }
 }
-function shareArtModal() { shareArt(_currentArtIdx); }
-function closeArt() { document.getElementById('ov-art').classList.remove('open'); }
+function shareArtModal() { shareArt(STATE.currentArticle); }
+
+// ─── NODES CRUD ───────────────────────────────────────────
+function renderNodes(filter) {
+  const q = (filter || '').toLowerCase();
+  const list = document.getElementById('nodes-list');
+  let filtered = q ? STATE.nodes.filter(n =>
+    n.name.toLowerCase().includes(q) ||
+    n.url.toLowerCase().includes(q) ||
+    n.cat.toLowerCase().includes(q)
+  ) : STATE.nodes;
+
+  const onCount   = STATE.nodes.filter(n => n.status === 'on').length;
+  const idleCount = STATE.nodes.filter(n => n.status === 'idle').length;
+  const onEl   = document.getElementById('nodes-on-count');
+  const idleEl = document.getElementById('nodes-idle-count');
+  if (onEl)   onEl.textContent   = `${onCount} ACTIVE`;
+  if (idleEl) idleEl.textContent = `${idleCount} IDLE`;
+
+  if (filtered.length === 0) {
+    list.innerHTML = `<div style="padding:24px 14px;text-align:center;color:var(--white-dimmer);font-size:12px;letter-spacing:0.15em">// NO NODES FOUND</div><button class="add-btn" onclick="openAF()">+ CONNECT NEW NODE</button>`;
+    return;
+  }
+  const cats = [...new Set(filtered.map(n => n.cat))];
+  list.innerHTML = cats.map(cat =>
+    `<div class="section-lbl">// ${cat}</div>` +
+    filtered.filter(n => n.cat === cat).map(n => `
+      <div class="node-row">
+        <div class="n-dot ${n.status==='on'?'n-on':n.status==='idle'?'n-idle':'n-off'}"></div>
+        <div class="n-info">
+          <div class="n-name">${n.name}</div>
+          <div class="n-url">${n.url}</div>
+        </div>
+        <div class="n-count">${n.count}</div>
+        <div class="n-actions">
+          <button class="n-btn ${n.status==='on'?'disc':'conn'}" onclick="toggleNodeStatus(${n.id})">${n.status==='on'?'— DISC':'+ CONN'}</button>
+          <button class="n-btn del" onclick="deleteNode(${n.id})">× DEL</button>
+        </div>
+      </div>`).join('')
+  ).join('') + `<button class="add-btn" onclick="openAF()">+ CONNECT NEW NODE</button>`;
+}
+
+function toggleNodeStatus(id) {
+  const node = STATE.nodes.find(n => n.id === id);
+  if (!node) return;
+  node.status = node.status === 'on' ? 'idle' : 'on';
+  renderNodes(document.getElementById('node-search')?.value || '');
+  toast(node.status === 'on' ? `CONNECTED: ${node.name.toUpperCase()}` : `DISCONNECTED: ${node.name.toUpperCase()}`);
+}
+
+function deleteNode(id) {
+  const node = STATE.nodes.find(n => n.id === id);
+  if (!node) return;
+  STATE.nodes = STATE.nodes.filter(n => n.id !== id);
+  renderNodes(document.getElementById('node-search')?.value || '');
+  toast(`NODE REMOVED: ${node.name.toUpperCase()}`);
+}
+
+function connectNode() {
+  const url  = document.getElementById('f-url').value.trim();
+  const name = document.getElementById('f-name').value.trim() || (url.split('/')[2] || url).toUpperCase();
+  const cat  = (document.getElementById('f-cat').value.trim() || 'UNCATEGORIZED').toUpperCase();
+  if (!url) { toast('ENTER A VALID FEED URL'); return; }
+  STATE.nodes.push({ id: STATE.nextNodeId++, name, url, cat, status: 'on', count: 0 });
+  document.getElementById('f-url').value = '';
+  document.getElementById('f-name').value = '';
+  document.getElementById('f-cat').value = '';
+  renderNodes();
+  closeAF();
+  toast(`NODE CONNECTED: ${name}`);
+}
+
 function openAF() { document.getElementById('ov-af').classList.add('open'); }
 function closeAF() { document.getElementById('ov-af').classList.remove('open'); }
-function connectNode() {
-  const u=document.getElementById('f-url').value.trim();
-  closeAF();
-  toast(u?'NODE CONNECTED: '+(u.split('/')[2]||u).toUpperCase():'ENTER A VALID FEED URL');
+
+// ─── EXPORT ───────────────────────────────────────────────
+function exportBackup(format) {
+  if (format === 'xml') {
+    const outlines = STATE.nodes.map(n =>
+      `  <outline text="${n.name}" title="${n.name}" type="rss" xmlUrl="https://${n.url}" category="${n.cat}"/>`
+    ).join('\n');
+    const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<opml version="2.0">\n<head>\n  <title>GAZER Signal Sources</title>\n  <dateCreated>${new Date().toUTCString()}</dateCreated>\n</head>\n<body>\n${outlines}\n</body>\n</opml>`;
+    downloadFile('gazer-backup.opml', xml, 'text/xml');
+  } else {
+    const cats = [...new Set(STATE.nodes.map(n => n.cat))];
+    let md = `# GAZER — Signal Sources Export\n\n*Generated: ${new Date().toLocaleDateString('pt-BR')}*\n\n`;
+    cats.forEach(cat => {
+      md += `## ${cat}\n\n`;
+      STATE.nodes.filter(n => n.cat === cat).forEach(n => {
+        md += `- **${n.name}** — \`${n.url}\` — ${n.status.toUpperCase()} — ${n.count} signals\n`;
+      });
+      md += '\n';
+    });
+    if (STATE.favorites.size > 0) {
+      md += `## Saved Articles\n\n`;
+      [...STATE.favorites].forEach(i => {
+        const a = ARTS[i];
+        if (a) md += `- **${a.title}** (${a.src} @ ${a.time}) — ${a.url}\n`;
+      });
+    }
+    downloadFile('gazer-backup.md', md, 'text/markdown');
+  }
 }
-let _t; function toast(msg) {
-  const el=document.getElementById('toast');
-  el.textContent=msg; el.classList.add('show');
-  clearTimeout(_t); _t=setTimeout(()=>el.classList.remove('show'),2800);
+
+function downloadFile(filename, content, mime) {
+  const blob = new Blob([content], { type: mime + ';charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = filename;
+  document.body.appendChild(a); a.click();
+  document.body.removeChild(a); URL.revokeObjectURL(url);
+  toast(`DOWNLOADING: ${filename.toUpperCase()}`);
 }
-// Live stats
+
+// ─── UTILITIES ────────────────────────────────────────────
+let _t;
+function toast(msg) {
+  const el = document.getElementById('toast');
+  el.textContent = msg; el.classList.add('show');
+  clearTimeout(_t); _t = setTimeout(() => el.classList.remove('show'), 2800);
+}
+
 function updateStats() {
-  const lat=(10+Math.random()*8).toFixed(1);
-  const nds=(4000+Math.floor(Math.random()*200)).toLocaleString();
-  const ld=Math.floor(35+Math.random()*20);
-  const le=document.getElementById('lat'); if(le) le.innerHTML=lat+'<span style="font-size:10px">ms</span>';
-  const ne=document.getElementById('nds'); if(ne) ne.textContent=nds;
-  const de=document.getElementById('ld');  if(de) de.innerHTML=ld+'<span style="font-size:10px">%</span>';
-  const lb=document.getElementById('lat-bar'); if(lb) lb.style.width=(lat/100*10)+'%';
-  const nb=document.getElementById('nds-bar'); if(nb) nb.style.width=(parseInt(nds.replace(/,/g,''))/5000*100)+'%';
-  const db=document.getElementById('ld-bar');  if(db) db.style.width=ld+'%';
+  const lat = (10 + Math.random() * 8).toFixed(1);
+  const nds = (4000 + Math.floor(Math.random() * 200)).toLocaleString();
+  const ld  = Math.floor(35 + Math.random() * 20);
+  const le = document.getElementById('lat'); if (le) le.innerHTML = lat + '<span style="font-size:12px">ms</span>';
+  const ne = document.getElementById('nds'); if (ne) ne.textContent = nds;
+  const de = document.getElementById('ld');  if (de) de.innerHTML = ld + '<span style="font-size:12px">%</span>';
+  const lb = document.getElementById('lat-bar'); if (lb) lb.style.width = (lat / 100 * 10) + '%';
+  const nb = document.getElementById('nds-bar'); if (nb) nb.style.width = (parseInt(nds.replace(/,/g,'')) / 5000 * 100) + '%';
+  const db = document.getElementById('ld-bar');  if (db) db.style.width = ld + '%';
 }
-setInterval(updateStats,4000);
-document.getElementById('ov-art').addEventListener('click',e=>{if(e.target===document.getElementById('ov-art'))closeArt();});
-document.getElementById('ov-af').addEventListener('click',e=>{if(e.target===document.getElementById('ov-af'))closeAF();});
-document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeArt();closeAF();}});
+
+// ─── EVENT LISTENERS ──────────────────────────────────────
+document.getElementById('ov-art').addEventListener('click', e => { if (e.target === document.getElementById('ov-art')) closeArt(); });
+document.getElementById('ov-af').addEventListener('click',  e => { if (e.target === document.getElementById('ov-af'))  closeAF();  });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeArt(); closeAF(); } });
+
+// ─── INIT ─────────────────────────────────────────────────
+setInterval(updateStats, 4000);
+initApp();
 </script>
 </body>
 </html>
