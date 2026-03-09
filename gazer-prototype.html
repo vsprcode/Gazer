@@ -349,6 +349,12 @@
   .cp-opt { width:18px; height:18px; cursor:pointer; border:2px solid transparent; transition:border-color 0.12s; }
   .cp-opt.sel { border-color:var(--white); }
 
+  .gmt-sel {
+    background:var(--black); border:var(--border); color:var(--orange);
+    font-family:var(--font); font-size:11.5px; letter-spacing:0.06em;
+    padding:4px 8px; cursor:pointer; outline:none;
+  }
+  .gmt-sel option { background:var(--black-2); color:var(--white); }
   #toast {
     position:fixed; bottom:72px; left:50%; transform:translateX(-50%);
     background:var(--black-2); border:1px solid var(--orange); color:var(--white);
@@ -415,18 +421,18 @@
       </div>
       <div class="stat">
         <div class="stat-lbl">ACTIVE NODES</div>
-        <div class="stat-val" id="nds">4,092</div>
-        <div class="bar-track"><div class="bar-fill" id="nds-bar" style="width:68%"></div></div>
+        <div class="stat-val" id="nds">—</div>
+        <div class="bar-track"><div class="bar-fill" id="nds-bar" style="width:0%"></div></div>
       </div>
       <div class="stat">
         <div class="stat-lbl">NETWORK LOAD</div>
-        <div class="stat-val" id="ld">42<span style="font-size:12px">%</span></div>
-        <div class="bar-track"><div class="bar-fill" id="ld-bar" style="width:42%"></div></div>
+        <div class="stat-val" id="ld">—<span id="ld-unit" style="font-size:12px"></span></div>
+        <div class="bar-track"><div class="bar-fill" id="ld-bar" style="width:0%"></div></div>
       </div>
       <div class="stat">
-        <div class="stat-lbl">THREAT LEVEL</div>
-        <div class="stat-val gr">NULL</div>
-        <div class="bar-track"><div class="bar-fill g" style="width:5%"></div></div>
+        <div class="stat-lbl">LAST SYNC</div>
+        <div class="stat-val gr" id="thr-val" style="font-size:11px;letter-spacing:0.06em">NO SYNC</div>
+        <div class="bar-track"><div class="bar-fill g" id="thr-bar" style="width:5%"></div></div>
       </div>
     </div>
     <button class="btn-p" onclick="goFeed()">START OBSERVATION &nbsp;→</button>
@@ -448,7 +454,7 @@
       <div><div class="os-title">GAZER OS</div><div class="os-sub">SIGNAL_PROCESSOR v0.9</div></div>
     </div>
     <div class="hdr-right">
-      <button class="ico-btn" onclick="renderFeed(STATE.currentTab);toast('FEED REFRESHED ↺')">↺</button>
+      <button class="ico-btn" onclick="refreshAllFeeds()">↺</button>
       <button class="ico-btn" onclick="toast('FILTER — COMING SOON')">⚏</button>
       <button class="ico-btn" onclick="openAF()">+</button>
     </div>
@@ -547,6 +553,7 @@
         <span class="sz-label" style="font-size:13px">A</span>
       </div>
     </div>
+    <div class="s-row"><span class="s-lbl">REFERENCE_TIMEZONE</span><select class="gmt-sel" id="gmt-sel" onchange="setGmt(parseInt(this.value))"><option>GMT+0</option></select></div>
     <div class="s-row"><span class="s-lbl">COMPACT_MODE</span><div class="toggle" onclick="this.classList.toggle('on')"></div></div>
     <div class="s-row"><span class="s-lbl">SCANLINES_OVERLAY</span><div class="toggle on" onclick="this.classList.toggle('on')"></div></div>
     <div class="s-row"><span class="s-lbl">ACCENT_COLOR</span><span class="s-val">ORANGE #E85500</span></div>
@@ -663,13 +670,13 @@ const DEAULT_TAGS = [
 const STATE = {
   pinBuffer: '', pinMode: 'enter', pinTemp: '',
   nodes: [
-    { id:1, name:'The Verge',            url:'theverge.com/rss/index.xml',          cat:'TECH & SCIENCE',   status:'on',   count:12, tags:['t1','t7'] },
-    { id:2, name:'Ars Technica',          url:'feeds.arstechnica.com/arstechnica',   cat:'TECH & SCIENCE',   status:'on',   count:8,  tags:['t1','t5'] },
-    { id:3, name:'MIT Technology Review', url:'technologyreview.com/feed/',          cat:'TECH & SCIENCE',   status:'idle', count:5,  tags:['t1','t4'] },
-    { id:4, name:'Krebs on Security',     url:'krebsonsecurity.com/feed/',           cat:'SECURITY & INTEL', status:'on',   count:3,  tags:['t2','t8'] },
-    { id:5, name:'Hacker News',           url:'news.ycombinator.com/rss',            cat:'SECURITY & INTEL', status:'on',   count:30, tags:['t2','t5','t1'] },
-    { id:6, name:'Reuters Tech',          url:'feeds.reuters.com/reuters/tech',      cat:'GLOBAL MARKETS',   status:'on',   count:9,  tags:['t3','t6'] },
-    { id:7, name:'Bloomberg Tech',        url:'bloomberg.com/feeds/technology',      cat:'GLOBAL MARKETS',   status:'idle', count:0,  tags:['t3'] },
+    { id:1, name:'The Verge',            url:'https://www.theverge.com/rss/index.xml',          cat:'TECH & SCIENCE',   status:'on',   count:0, tags:['t1','t7'] },
+    { id:2, name:'Ars Technica',          url:'https://feeds.arstechnica.com/arstechnica/index', cat:'TECH & SCIENCE',   status:'on',   count:0, tags:['t1','t5'] },
+    { id:3, name:'MIT Technology Review', url:'https://www.technologyreview.com/feed/',          cat:'TECH & SCIENCE',   status:'idle', count:0, tags:['t1','t4'] },
+    { id:4, name:'Krebs on Security',     url:'https://krebsonsecurity.com/feed/',               cat:'SECURITY & INTEL', status:'on',   count:0, tags:['t2','t8'] },
+    { id:5, name:'Hacker News',           url:'https://news.ycombinator.com/rss',                cat:'SECURITY & INTEL', status:'on',   count:0, tags:['t2','t5','t1'] },
+    { id:6, name:'Reuters Tech',          url:'https://feeds.reuters.com/reuters/technologyNews', cat:'GLOBAL MARKETS',   status:'on',   count:0, tags:['t3','t6'] },
+    { id:7, name:'Bloomberg Tech',        url:'https://feeds.bloomberg.com/technology/news.rss',  cat:'GLOBAL MARKETS',   status:'idle', count:0, tags:['t3'] },
   ],
   nextNodeId: 8,
   tagsDB: JSON.parse(localStorage.getItem('gazer_tags') || JSON.stringify(DEAULT_TAGS)),
@@ -680,7 +687,10 @@ const STATE = {
   currentArticle: 0,
   currentTab: 'ALL_SIGNALS',
   uiSize: parseInt(localStorage.getItem('gazer_ui_size') || '14'),
+  gmtOffset: parseInt(localStorage.getItem('gazer_gmt') || '0'),
   selectedGraphNode: null,
+  liveArticles: [],
+  lastFetchTime: null,
 };
 
 // ─── ARTICLES ─────────────────────────────────────────────
@@ -715,7 +725,8 @@ const ARTS = [
 // ─── UI SIZE ──────────────────────────────────────────────
 function initUiSize() {
   const sz = STATE.uiSize;
-  document.documentElement.style.fontSize = sz + 'px';
+  const appEl = document.getElementById('app');
+  if (appEl) appEl.style.zoom = (sz / 14).toFixed(3);
   const slider = document.getElementById('ui-size-slider');
   const label  = document.getElementById('ui-size-val');
   if (slider) slider.value = sz;
@@ -723,7 +734,8 @@ function initUiSize() {
 }
 function setUiSize(val) {
   STATE.uiSize = val;
-  document.documentElement.style.fontSize = val + 'px';
+  const appEl = document.getElementById('app');
+  if (appEl) appEl.style.zoom = (val / 14).toFixed(3);
   document.getElementById('ui-size-val').textContent = val + 'px';
   localStorage.setItem('gazer_ui_size', val);
 }
@@ -731,6 +743,7 @@ function setUiSize(val) {
 // ─── LOGIN ────────────────────────────────────────────────
 function initApp() {
   initUiSize();
+  initGmt();
   const stored = localStorage.getItem('gazer_pin');
   if (!stored) {
     STATE.pinMode = 'set';
@@ -787,7 +800,10 @@ function unlockApp() {
   document.getElementById('login-err').textContent = '';
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
   document.getElementById('s-landing').classList.add('active');
+  loadFeedCache();
   renderFeed('ALL_SIGNALS'); renderNodes(); updateFavCount();
+  updateDashboardStats();
+  refreshAllFeeds();
 }
 function logout() {
   STATE.pinBuffer = ''; STATE.pinMode = 'enter';
@@ -825,7 +841,8 @@ function go(name, btn) {
     if (STATE.nodeView === 'graph') setTimeout(renderGraph, 50);
   }
   if (name === 'feed') renderFeed(STATE.currentTab);
-  if (name === 'settings') initUiSize();
+  if (name === 'settings') { initUiSize(); buildGmtOptions(); }
+  if (name === 'landing') updateDashboardStats();
   const idx = Array.from(btn.parentElement.children).indexOf(btn);
   document.querySelectorAll('.bottom-nav').forEach(nav => {
     nav.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
@@ -972,16 +989,31 @@ function graphNodeClick(id) {
   renderGraph();
 }
 
+// ─── FEED HELPERS ─────────────────────────────────────────
+function getArticles() {
+  return (STATE.liveArticles && STATE.liveArticles.length > 0) ? STATE.liveArticles : ARTS;
+}
+function findArticle(id) {
+  const live = STATE.liveArticles;
+  if (live && live.length > 0) {
+    const found = live.find(a => a.id === id);
+    if (found) return found;
+  }
+  // Fallback to static ARTS by index or id match
+  return ARTS.find(a => a.id === id) || ARTS[id] || null;
+}
+
 // ─── FEED RENDERING ───────────────────────────────────────
 const SHARE_SVG = `<svg viewBox="0 0 24 24" style="width:13px;height:13px;fill:currentColor;flex-shrink:0"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11A2.99 2.99 0 0018 8a3 3 0 000-6 3 3 0 00-3 3c0 .24.04.47.09.7L8.04 9.81A2.99 2.99 0 006 9a3 3 0 000 6c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65a2.92 2.92 0 002.92 2.92A2.92 2.92 0 0021 19a2.92 2.92 0 00-2.92-2.92z"/></svg>`;
 const MAP_BOX  = `<div class="map-box"><svg class="map-svg" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="200" fill="#111"/><line x1="0" y1="100" x2="400" y2="100" stroke="#2A2A2A" stroke-width="0.5"/><line x1="200" y1="0" x2="200" y2="200" stroke="#2A2A2A" stroke-width="0.5"/><line x1="0" y1="50" x2="400" y2="50" stroke="#1A1A1A" stroke-width="0.5"/><line x1="0" y1="150" x2="400" y2="150" stroke="#1A1A1A" stroke-width="0.5"/><line x1="100" y1="0" x2="100" y2="200" stroke="#1A1A1A" stroke-width="0.5"/><line x1="300" y1="0" x2="300" y2="200" stroke="#1A1A1A" stroke-width="0.5"/><ellipse cx="90" cy="80" rx="45" ry="30" fill="#2A2A2A"/><ellipse cx="90" cy="130" rx="30" ry="35" fill="#2A2A2A"/><ellipse cx="200" cy="75" rx="40" ry="35" fill="#2A2A2A"/><ellipse cx="270" cy="85" rx="55" ry="28" fill="#2A2A2A"/><ellipse cx="310" cy="140" rx="20" ry="25" fill="#2A2A2A"/><ellipse cx="352" cy="88" rx="30" ry="20" fill="#2A2A2A"/><circle cx="90" cy="80" r="4" fill="none" stroke="#E85500" stroke-width="1.5"/><circle cx="90" cy="80" r="9" fill="none" stroke="#E85500" stroke-width="0.5" opacity="0.5"/><circle cx="200" cy="75" r="4" fill="none" stroke="#E85500" stroke-width="1.5"/><circle cx="200" cy="75" r="9" fill="none" stroke="#E85500" stroke-width="0.5" opacity="0.5"/><circle cx="270" cy="85" r="3" fill="none" stroke="#FF2D2D" stroke-width="1.5"/><circle cx="270" cy="85" r="7" fill="none" stroke="#FF2D2D" stroke-width="0.5" opacity="0.5"/></svg><div class="map-label">GLOBAL THREAT MAP</div></div>`;
 
 function renderFeed(tab) {
   const container = document.getElementById('feed-list-body');
-  let items = ARTS;
-  if (tab === 'FAVORITES')    items = ARTS.filter(a => STATE.favorites.has(a.id));
-  else if (tab === 'SECURITY') items = ARTS.filter(a => a.src.includes('SEC') || a.tags.some(t => t.includes('THREAT')));
-  else if (tab === 'INTEL_STREAM') items = ARTS.filter(a => a.bdg !== 'CRITICAL');
+  const allArts = getArticles();
+  let items = allArts;
+  if (tab === 'FAVORITES')    items = allArts.filter(a => STATE.favorites.has(a.id));
+  else if (tab === 'SECURITY') items = allArts.filter(a => (a.src||'').includes('SEC') || (a.tags||[]).some(t => t.includes('THREAT') || t.includes('SECURITY') || t.includes('SEC')));
+  else if (tab === 'INTEL_STREAM') items = allArts.filter(a => a.bdg !== 'CRITICAL');
   if (items.length === 0) {
     container.innerHTML = `<div style="padding:40px 14px;text-align:center;color:var(--white-dimmer);font-size:12px;letter-spacing:0.15em">${tab === 'FAVORITES' ? '// NO SAVED SIGNALS YET<br><br>PRESS ★ ON ANY SIGNAL TO SAVE' : '// NO SIGNALS IN THIS STREAM'}</div>`;
     return;
@@ -1011,16 +1043,18 @@ function renderFeed(tab) {
 }
 
 // ─── ARTICLES ─────────────────────────────────────────────
-function openArt(i) {
-  STATE.currentArticle = i;
-  const a = ARTS[i];
-  const isFav = STATE.favorites.has(i);
+function openArt(id) {
+  STATE.currentArticle = id;
+  const a = findArticle(id);
+  if (!a) return;
+  const isFav = STATE.favorites.has(id);
+  const tagsHtml = (a.tags||[]).map(t=>`<span class="tag or">${t}</span>`).join('');
   document.getElementById('art-body').innerHTML = `
     <div class="m-title">${a.title}</div>
     <div class="m-meta"><span>${a.src}</span><span>|</span><span>${a.time}</span><span>|</span><span class="badge ${a.badgeCls}">${a.bdg}</span></div>
-    <div class="ai-box"><div class="ai-lbl">// AI_SIGNAL_ANALYSIS</div><div class="ai-txt">${a.sum}</div></div>
-    <div class="m-text">${a.body}</div>
-    <div class="tags" style="margin-top:14px">${a.tags.map(t=>`<span class="tag or">${t}</span>`).join('')}</div>`;
+    <div class="ai-box"><div class="ai-lbl">// AI_SIGNAL_ANALYSIS</div><div class="ai-txt">${a.sum || a.body || 'SIGNAL FROM ' + a.src}</div></div>
+    <div class="m-text">${a.body || ''}</div>
+    <div class="tags" style="margin-top:14px">${tagsHtml}</div>`;
   const favBtn = document.getElementById('fav-btn');
   favBtn.textContent = isFav ? '★ SAVED' : '★ SAVE';
   favBtn.classList.toggle('btn-fav-on', isFav);
@@ -1028,7 +1062,7 @@ function openArt(i) {
 }
 function closeArt() { document.getElementById('ov-art').classList.remove('open'); }
 function openArticleLink() {
-  const a = ARTS[STATE.currentArticle];
+  const a = findArticle(STATE.currentArticle);
   if (a && a.url) window.open(a.url, '_blank');
 }
 
@@ -1050,8 +1084,9 @@ function updateFavCount() {
   const el = document.getElementById('fav-count');
   if (el) el.textContent = STATE.favorites.size;
 }
-function shareArt(i) {
-  const a = ARTS[i];
+function shareArt(id) {
+  const a = findArticle(id);
+  if (!a) return;
   const txt = `[GAZER SIGNAL] ${a.title} — ${a.src} @ ${a.time} — ${a.url}`;
   if (navigator.share) navigator.share({ title: a.title, text: txt, url: a.url }).then(() => toast('SIGNAL SHARED ↗')).catch(() => {});
   else navigator.clipboard.writeText(txt).then(() => toast('COPIED TO CLIPBOARD ↗')).catch(() => toast('SHARE: ' + txt.slice(0, 40) + '...'));
@@ -1232,7 +1267,7 @@ function exportBackup(format) {
     });
     if (STATE.favorites.size > 0) {
       md += `## Saved Articles\n\n`;
-      [...STATE.favorites].forEach(i => { const a = ARTS[i]; if (a) md += `- **${a.title}** (${a.src} @ ${a.time}) — ${a.url}\n`; });
+      [...STATE.favorites].forEach(id => { const a = findArticle(id); if (a) md += `- **${a.title}** (${a.src} @ ${a.time}) — ${a.url}\n`; });
     }
     downloadFile('gazer-backup.md', md, 'text/markdown');
   }
@@ -1247,6 +1282,145 @@ function downloadFile(filename, content, mime) {
   toast(`DOWNLOADING: ${filename.toUpperCase()}`);
 }
 
+// ─── GMT TIMEZONE ─────────────────────────────────────────
+function initGmt() {
+  STATE.gmtOffset = parseInt(localStorage.getItem('gazer_gmt') || '0');
+  buildGmtOptions();
+}
+function setGmt(offset) {
+  STATE.gmtOffset = offset;
+  localStorage.setItem('gazer_gmt', offset);
+  const label = 'GMT' + (offset >= 0 ? '+' : '') + offset;
+  toast('TIMEZONE SET: ' + label);
+  renderFeed(STATE.currentTab);
+}
+function buildGmtOptions() {
+  const sel = document.getElementById('gmt-sel');
+  if (!sel) return;
+  let opts = '';
+  for (let i = -12; i <= 14; i++) {
+    const label = 'GMT' + (i >= 0 ? '+' : '') + i;
+    opts += `<option value="${i}"${i === STATE.gmtOffset ? ' selected' : ''}>${label}</option>`;
+  }
+  sel.innerHTML = opts;
+}
+function formatTime(dateStr) {
+  if (!dateStr) return '--:-- UTC';
+  try {
+    const d = new Date(dateStr);
+    if (isNaN(d.getTime())) return String(dateStr).slice(0, 16);
+    const offsetMs = STATE.gmtOffset * 3600000;
+    const local = new Date(d.getTime() + offsetMs);
+    const h   = local.getUTCHours().toString().padStart(2, '0');
+    const m   = local.getUTCMinutes().toString().padStart(2, '0');
+    const off = STATE.gmtOffset;
+    return `${h}:${m} GMT${off >= 0 ? '+' : ''}${off}`;
+  } catch(e) { return '--:-- UTC'; }
+}
+
+// ─── RSS FETCHING ─────────────────────────────────────────
+const FEED_CACHE_KEY = 'gazer_feed_cache';
+const FEED_CACHE_TTL = 15 * 60 * 1000;
+
+async function fetchRSSFeed(node) {
+  const url = node.url.startsWith('http') ? node.url : 'https://' + node.url;
+  // Try rss2json.com (CORS-friendly, JSON response)
+  try {
+    const r = await fetch(
+      `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(url)}&count=20`,
+      { signal: AbortSignal.timeout(8000) }
+    );
+    const d = await r.json();
+    if (d.status === 'ok' && d.items && d.items.length > 0) {
+      return d.items.map((item, idx) => normalizeItem(item, node, idx, 'json'));
+    }
+  } catch(e) {}
+  // Fallback: allorigins.win + DOMParser
+  try {
+    const r = await fetch(
+      `https://api.allorigins.win/get?url=${encodeURIComponent(url)}`,
+      { signal: AbortSignal.timeout(12000) }
+    );
+    const d = await r.json();
+    if (d.contents) {
+      const xml   = new DOMParser().parseFromString(d.contents, 'text/xml');
+      const items = Array.from(xml.querySelectorAll('item, entry'));
+      if (items.length > 0) {
+        return items.slice(0, 20).map((item, idx) => normalizeItem(item, node, idx, 'xml'));
+      }
+    }
+  } catch(e) {}
+  return [];
+}
+
+function normalizeItem(item, node, idx, source) {
+  let title = '', link = '', pubDate = '', description = '';
+  if (source === 'json') {
+    title       = item.title        || '';
+    link        = item.link         || item.guid  || '';
+    pubDate     = item.pubDate      || '';
+    description = item.description  || item.content || '';
+  } else {
+    title       = item.querySelector('title')?.textContent       || '';
+    link        = item.querySelector('link')?.textContent        || item.querySelector('guid')?.textContent || '';
+    pubDate     = item.querySelector('pubDate,published,updated')?.textContent || '';
+    description = item.querySelector('description,summary,content')?.textContent || '';
+  }
+  const clean = description.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim().slice(0, 300);
+  const stableId = node.id * 100000 + idx;
+  return {
+    id:        stableId,
+    src:       node.name.toUpperCase().replace(/\s+/g, '_').slice(0, 14),
+    bdg:       'NEW',
+    time:      formatTime(pubDate),
+    url:       link,
+    title:     (title || 'UNTITLED').toUpperCase().slice(0, 100),
+    sum:       clean || 'SIGNAL FROM ' + node.name.toUpperCase(),
+    body:      clean,
+    tags:      (node.tags || []).map(tid => { const t = STATE.tagsDB.find(tt => tt.id === tid); return t ? t.name : null; }).filter(Boolean),
+    cardClass: 'c-mid',
+    badgeCls:  'b-new',
+    nodeId:    node.id,
+  };
+}
+
+async function refreshAllFeeds() {
+  const active = STATE.nodes.filter(n => n.status === 'on');
+  if (active.length === 0) { toast('NO ACTIVE NODES'); return; }
+  toast('↺ SYNCING ' + active.length + ' FEEDS...');
+  const results = await Promise.allSettled(active.map(n => fetchRSSFeed(n)));
+  let all = [];
+  results.forEach((r, i) => {
+    if (r.status === 'fulfilled' && r.value.length > 0) {
+      all = all.concat(r.value);
+      active[i].count = r.value.length;
+    }
+  });
+  if (all.length === 0) { toast('NO ARTICLES FETCHED — CHECK CONNECTIONS'); return; }
+  // Sort newest first (higher stableId = more recent index, but rely on array order)
+  STATE.liveArticles   = all;
+  STATE.lastFetchTime  = Date.now();
+  try {
+    localStorage.setItem(FEED_CACHE_KEY, JSON.stringify({ ts: STATE.lastFetchTime, articles: all.slice(0, 250) }));
+  } catch(e) {}
+  renderFeed(STATE.currentTab);
+  renderNodes();
+  updateDashboardStats();
+  toast('✓ ' + all.length + ' SIGNALS RECEIVED');
+}
+
+function loadFeedCache() {
+  try {
+    const raw = localStorage.getItem(FEED_CACHE_KEY);
+    if (!raw) return;
+    const cache = JSON.parse(raw);
+    if (Date.now() - cache.ts < FEED_CACHE_TTL && cache.articles && cache.articles.length > 0) {
+      STATE.liveArticles  = cache.articles;
+      STATE.lastFetchTime = cache.ts;
+    }
+  } catch(e) {}
+}
+
 // ─── UTILITIES ────────────────────────────────────────────
 let _t;
 function toast(msg) {
@@ -1254,16 +1428,39 @@ function toast(msg) {
   el.textContent = msg; el.classList.add('show');
   clearTimeout(_t); _t = setTimeout(() => el.classList.remove('show'), 2800);
 }
-function updateStats() {
-  const lat = (10 + Math.random() * 8).toFixed(1);
-  const nds = (4000 + Math.floor(Math.random() * 200)).toLocaleString();
-  const ld  = Math.floor(35 + Math.random() * 20);
-  const le = document.getElementById('lat'); if (le) le.innerHTML = lat + '<span style="font-size:12px">ms</span>';
-  const ne = document.getElementById('nds'); if (ne) ne.textContent = nds;
-  const de = document.getElementById('ld');  if (de) de.innerHTML = ld + '<span style="font-size:12px">%</span>';
-  const lb = document.getElementById('lat-bar'); if (lb) lb.style.width = (lat / 100 * 10) + '%';
-  const nb = document.getElementById('nds-bar'); if (nb) nb.style.width = (parseInt(nds.replace(/,/g,'')) / 5000 * 100) + '%';
-  const db = document.getElementById('ld-bar');  if (db) db.style.width = ld + '%';
+function animateLatency() {
+  const lat = (8 + Math.random() * 14).toFixed(1);
+  const le = document.getElementById('lat');
+  if (le) le.innerHTML = lat + '<span style="font-size:12px">ms</span>';
+  const lb = document.getElementById('lat-bar');
+  if (lb) lb.style.width = Math.min(lat / 50 * 100, 100) + '%';
+}
+function updateDashboardStats() {
+  const onCount    = STATE.nodes.filter(n => n.status === 'on').length;
+  const totalCount = STATE.nodes.length;
+  const loadPct    = totalCount > 0 ? Math.round((onCount / totalCount) * 100) : 0;
+
+  const ne = document.getElementById('nds');
+  if (ne) ne.textContent = onCount;
+  const nb = document.getElementById('nds-bar');
+  if (nb) nb.style.width = loadPct + '%';
+
+  const de = document.getElementById('ld');
+  if (de) de.innerHTML = loadPct + '<span style="font-size:12px">%</span>';
+  const db = document.getElementById('ld-bar');
+  if (db) db.style.width = loadPct + '%';
+
+  const tv = document.getElementById('thr-val');
+  const tb = document.getElementById('thr-bar');
+  if (STATE.lastFetchTime) {
+    const agoMin = Math.floor((Date.now() - STATE.lastFetchTime) / 60000);
+    const timeStr = agoMin < 1 ? 'JUST NOW' : agoMin < 60 ? agoMin + 'm AGO' : Math.floor(agoMin / 60) + 'h AGO';
+    if (tv) tv.textContent = timeStr;
+    if (tb) tb.style.width = '80%';
+  } else {
+    if (tv) tv.textContent = 'NO SYNC';
+    if (tb) tb.style.width = '5%';
+  }
 }
 
 // ─── EVENT LISTENERS ──────────────────────────────────────
@@ -1274,7 +1471,8 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeArt()
 window.addEventListener('resize', () => { if (STATE.nodeView === 'graph') renderGraph(); });
 
 // ─── INIT ─────────────────────────────────────────────────
-setInterval(updateStats, 4000);
+setInterval(animateLatency, 4000);
+setInterval(updateDashboardStats, 30000);
 initApp();
 </script>
 </body>
