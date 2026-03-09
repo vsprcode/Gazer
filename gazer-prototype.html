@@ -138,46 +138,26 @@
     padding:9px 14px; border-bottom:var(--border); background:var(--black-2); flex-shrink:0;
   }
   .hdr-left { display:flex; align-items:center; gap:9px; }
-  .os-icon {
-    width:27px; height:27px; background:var(--orange);
-    display:flex; align-items:center; justify-content:center;
-    font-size:12px; font-weight:700; color:var(--black); flex-shrink:0;
-  }
+  .os-icon { width:27px; height:27px; background:var(--orange); display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700; color:var(--black); flex-shrink:0; }
   .os-title { font-size: 14px; font-weight:700; letter-spacing:0.1em; }
   .os-sub { font-size: 10px; color:var(--white-dimmer); letter-spacing:0.1em; }
   .hdr-right { display:flex; align-items:center; gap:7px; }
-  .ico-btn {
-    width:30px; height:30px; display:flex; align-items:center; justify-content:center;
-    background:transparent; border:var(--border); color:var(--white-dim);
-    cursor:pointer; font-size:15px; transition:border-color 0.15s, color 0.15s;
-  }
+  .ico-btn { width:30px; height:30px; display:flex; align-items:center; justify-content:center; background:transparent; border:var(--border); color:var(--white-dim); cursor:pointer; font-size:15px; transition:border-color 0.15s, color 0.15s; }
   .ico-btn:hover { border-color:var(--orange); color:var(--orange); }
   .tabs { display:flex; border-bottom:var(--border); background:var(--black-2); overflow-x:auto; scrollbar-width:none; flex-shrink:0; }
   .tabs::-webkit-scrollbar { display:none; }
-  .tab {
-    padding:9px 13px; font-size: 10.5px; font-weight:700; letter-spacing:0.15em;
-    color:var(--white-dimmer); cursor:pointer; white-space:nowrap;
-    border:none; background:transparent; font-family:var(--font);
-    text-transform:uppercase; position:relative; transition:color 0.15s;
-  }
+  .tab { padding:9px 13px; font-size: 10.5px; font-weight:700; letter-spacing:0.15em; color:var(--white-dimmer); cursor:pointer; white-space:nowrap; border:none; background:transparent; font-family:var(--font); text-transform:uppercase; position:relative; transition:color 0.15s; }
   .tab:hover { color:var(--white-dim); }
   .tab.active { color:var(--orange); }
   .tab.active::after { content:''; position:absolute; bottom:0;left:0;right:0; height:2px; background:var(--orange); }
-  .priority-bar {
-    display:flex; align-items:center; gap:7px; padding:7px 14px;
-    background:rgba(232,85,0,0.08); border-bottom:1px solid rgba(232,85,0,0.25);
-    font-size: 10.5px; letter-spacing:0.15em; color:var(--orange); text-transform:uppercase; flex-shrink:0;
-  }
+  .priority-bar { display:flex; align-items:center; gap:7px; padding:7px 14px; background:rgba(232,85,0,0.08); border-bottom:1px solid rgba(232,85,0,0.25); font-size: 10.5px; letter-spacing:0.15em; color:var(--orange); text-transform:uppercase; flex-shrink:0; }
   .p-dot { width:6px; height:6px; background:var(--orange); border-radius:50%; animation:pulse 1s infinite; }
   .feed-list { flex:1; overflow-y:auto; scrollbar-width:thin; scrollbar-color:var(--black-4) transparent; }
   .feed-list::-webkit-scrollbar { width:3px; }
   .feed-list::-webkit-scrollbar-thumb { background:var(--black-4); }
 
   /* Signal cards */
-  .card {
-    border-bottom:var(--border); border-left:3px solid transparent;
-    padding:14px; cursor:pointer; transition:background 0.15s, border-left-color 0.15s;
-  }
+  .card { border-bottom:var(--border); border-left:3px solid transparent; padding:14px; cursor:pointer; transition:background 0.15s, border-left-color 0.15s; }
   .card:hover { background:var(--black-2); }
   .card.c-hi { border-left-color:var(--orange); }
   .card.c-crit { border-left-color:var(--red); }
@@ -193,11 +173,7 @@
   .c-time { margin-left:auto; font-size: 10px; color:var(--white-dimmer); }
   .c-title { font-size: 13.5px; font-weight:700; letter-spacing:0.02em; text-transform:uppercase; line-height:1.35; margin-bottom:7px; }
   .c-excerpt { font-size: 11.5px; color:var(--white-dim); line-height:1.55; margin-bottom:9px; font-style:italic; }
-  .map-box {
-    width:100%; height:78px; background:var(--black-3); border:var(--border);
-    display:flex; align-items:center; justify-content:center; margin-bottom:9px;
-    position:relative; overflow:hidden;
-  }
+  .map-box { width:100%; height:78px; background:var(--black-3); border:var(--border); display:flex; align-items:center; justify-content:center; margin-bottom:9px; position:relative; overflow:hidden; }
   .map-svg { width:100%; height:100%; opacity:0.38; }
   .map-label { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-size: 10px; letter-spacing:0.2em; color:var(--orange); text-transform:uppercase; }
   .tags { display:flex; gap:5px; flex-wrap:wrap; margin-bottom:9px; }
@@ -206,56 +182,48 @@
   .tag.gr { border-color:var(--green); color:var(--green); }
   .tag.rd { border-color:var(--red); color:var(--red); }
   .card-actions { display:flex; gap:6px; }
-  .c-action {
-    display:flex; align-items:center; gap:5px; font-size: 10.5px;
-    letter-spacing:0.12em; color:var(--orange); text-transform:uppercase;
-    padding:7px 9px; background:rgba(232,85,0,0.07); border:1px solid rgba(232,85,0,0.18);
-    flex:1; cursor:pointer; font-family:var(--font); transition:background 0.15s;
-  }
+  .c-action { display:flex; align-items:center; gap:5px; font-size: 10.5px; letter-spacing:0.12em; color:var(--orange); text-transform:uppercase; padding:7px 9px; background:rgba(232,85,0,0.07); border:1px solid rgba(232,85,0,0.18); flex:1; cursor:pointer; font-family:var(--font); transition:background 0.15s; }
   .c-action:hover { background:rgba(232,85,0,0.15); }
   .c-action .arr { margin-left:auto; }
-  .c-fav {
-    display:flex; align-items:center; justify-content:center;
-    width:34px; font-size:17px; background:transparent;
-    border:1px solid var(--black-4); color:var(--white-dimmer);
-    cursor:pointer; transition:border-color 0.15s, color 0.15s, background 0.15s; flex-shrink:0;
-  }
+  .c-fav { display:flex; align-items:center; justify-content:center; width:34px; font-size:17px; background:transparent; border:1px solid var(--black-4); color:var(--white-dimmer); cursor:pointer; transition:border-color 0.15s, color 0.15s, background 0.15s; flex-shrink:0; }
   .c-fav:hover { border-color:var(--orange); color:var(--orange); }
   .c-fav.saved { color:var(--orange); border-color:var(--orange); background:rgba(232,85,0,0.12); }
-  .c-share {
-    display:flex; align-items:center; justify-content:center; gap:4px; font-size: 10.5px;
-    letter-spacing:0.1em; color:var(--white-dim); text-transform:uppercase;
-    padding:7px 10px; background:transparent; border:1px solid var(--black-4);
-    cursor:pointer; font-family:var(--font); transition:border-color 0.15s, color 0.15s; flex-shrink:0;
-  }
+  .c-share { display:flex; align-items:center; justify-content:center; gap:4px; font-size: 10.5px; letter-spacing:0.1em; color:var(--white-dim); text-transform:uppercase; padding:7px 10px; background:transparent; border:1px solid var(--black-4); cursor:pointer; font-family:var(--font); transition:border-color 0.15s, color 0.15s; flex-shrink:0; }
   .c-share:hover { border-color:var(--orange); color:var(--orange); }
   .c-share svg { width:13px; height:13px; fill:currentColor; }
 
   /* ── NODES ── */
-  .page-hdr { padding:14px 16px; border-bottom:var(--border); background:var(--black-2); flex-shrink:0; }
+  .page-hdr { padding:12px 16px; border-bottom:var(--border); background:var(--black-2); flex-shrink:0; }
+  .page-hdr-row { display:flex; align-items:center; justify-content:space-between; }
   .page-sub { font-size: 10.5px; letter-spacing:0.2em; color:var(--white-dimmer); text-transform:uppercase; margin-bottom:1px; }
   .page-title { font-size: 19px; font-weight:700; }
+  .view-toggle { display:flex; gap:4px; }
+  .nv-btn { font-family:var(--font); font-size:9.5px; letter-spacing:0.1em; text-transform:uppercase; padding:5px 9px; background:transparent; border:1px solid var(--black-4); color:var(--white-dimmer); cursor:pointer; transition:all 0.15s; }
+  .nv-btn:hover { border-color:var(--orange); color:var(--orange); }
+  .nv-btn.active { border-color:var(--orange); color:var(--orange); background:rgba(232,85,0,0.1); }
   .search-row { display:flex; align-items:center; gap:8px; padding:9px 14px; border-bottom:var(--border); flex-shrink:0; }
   .search-ico { color:var(--white-dimmer); font-size:15px; }
   .s-input { flex:1; background:transparent; border:none; color:var(--white); font-family:var(--font); font-size: 12.5px; outline:none; }
   .s-input::placeholder { color:var(--white-dimmer); }
   .section-lbl { padding:7px 14px 3px; font-size: 9.5px; letter-spacing:0.2em; color:var(--white-dimmer); text-transform:uppercase; border-bottom:var(--border); background:var(--black-2); }
-  .node-row { display:flex; align-items:center; gap:10px; padding:10px 14px; border-bottom:var(--border); transition:background 0.15s; }
+  .node-row { display:flex; align-items:flex-start; gap:10px; padding:10px 14px; border-bottom:var(--border); transition:background 0.15s; }
   .node-row:hover { background:var(--black-2); }
-  .n-dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
+  .n-dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; margin-top:5px; }
   .n-on  { background:var(--green); box-shadow:0 0 4px var(--green); }
   .n-idle{ background:var(--orange); }
   .n-off { background:var(--white-dimmer); }
   .n-info { flex:1; min-width:0; }
   .n-name { font-size: 12.5px; color:var(--white); margin-bottom:1px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-  .n-url  { font-size: 10.5px; color:var(--white-dimmer); letter-spacing:0.04em; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-  .n-count { font-size: 10.5px; color:var(--orange); background:rgba(232,85,0,0.1); padding:2px 6px; flex-shrink:0; }
-  .n-actions { display:flex; gap:4px; flex-shrink:0; }
-  .n-btn {
-    font-family:var(--font); font-size:9px; letter-spacing:0.08em; text-transform:uppercase;
-    padding:4px 7px; background:transparent; border:1px solid var(--black-4);
-    color:var(--white-dimmer); cursor:pointer; transition:all 0.15s; white-space:nowrap;
-  }
+  .n-url  { font-size: 10.5px; color:var(--white-dimmer); letter-spacing:0.04em; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; margin-bottom:4px; }
+  .n-tags { display:flex; flex-wrap:wrap; gap:3px; }
+  .n-tag-chip { font-size:8.5px; letter-spacing:0.08em; padding:1px 5px; text-transform:uppercase; border-radius:0; }
+  .ntc-or { border:1px solid rgba(232,85,0,0.5); color:var(--orange); }
+  .ntc-rd { border:1px solid rgba(255,45,45,0.5); color:var(--red); }
+  .ntc-gr { border:1px solid rgba(0,255,65,0.5); color:var(--green); }
+  .ntc-   { border:1px solid var(--black-4); color:var(--white-dimmer); }
+  .n-count { font-size: 10.5px; color:var(--orange); background:rgba(232,85,0,0.1); padding:2px 6px; flex-shrink:0; align-self:center; }
+  .n-actions { display:flex; gap:4px; flex-shrink:0; align-self:center; }
+  .n-btn { font-family:var(--font); font-size:9px; letter-spacing:0.08em; text-transform:uppercase; padding:4px 7px; background:transparent; border:1px solid var(--black-4); color:var(--white-dimmer); cursor:pointer; transition:all 0.15s; white-space:nowrap; }
   .n-btn.conn { border-color:var(--orange); color:var(--orange); }
   .n-btn.conn:hover { background:rgba(232,85,0,0.1); }
   .n-btn.disc { border-color:var(--white-dimmer); color:var(--white-dimmer); }
@@ -263,14 +231,29 @@
   .n-btn.del:hover { border-color:var(--red); color:var(--red); }
   .nodes-body { flex:1; overflow-y:auto; scrollbar-width:none; }
   .nodes-body::-webkit-scrollbar { display:none; }
-  .add-btn {
-    margin:11px 14px; display:flex; align-items:center; justify-content:center; gap:7px;
-    padding:11px; background:transparent; border:1px dashed var(--black-4);
-    color:var(--white-dimmer); font-family:var(--font); font-size: 11.5px;
-    letter-spacing:0.12em; text-transform:uppercase; cursor:pointer;
-    width:calc(100% - 28px); transition:border-color 0.15s, color 0.15s;
-  }
+  .add-btn { margin:11px 14px; display:flex; align-items:center; justify-content:center; gap:7px; padding:11px; background:transparent; border:1px dashed var(--black-4); color:var(--white-dimmer); font-family:var(--font); font-size: 11.5px; letter-spacing:0.12em; text-transform:uppercase; cursor:pointer; width:calc(100% - 28px); transition:border-color 0.15s, color 0.15s; }
   .add-btn:hover { border-color:var(--orange); color:var(--orange); }
+
+  /* ── GRAPH VIEW ── */
+  .graph-view { flex:1; display:none; flex-direction:column; overflow:hidden; }
+  .graph-view.active { display:flex; }
+  .graph-canvas { flex:1; background:var(--black); position:relative; overflow:hidden; }
+  .graph-canvas svg { width:100%; height:100%; display:block; }
+  .graph-info-panel {
+    border-top:var(--border); background:var(--black-2); padding:11px 14px;
+    flex-shrink:0; min-height:80px; display:flex; flex-direction:column; gap:6px;
+  }
+  .gi-empty { font-size:10.5px; letter-spacing:0.15em; color:var(--white-dimmer); text-transform:uppercase; align-self:center; margin:auto; }
+  .gi-name { font-size:13.5px; font-weight:700; letter-spacing:0.04em; }
+  .gi-url  { font-size:10px; color:var(--white-dimmer); }
+  .gi-row  { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+  .gi-badge { font-size:9px; font-weight:700; letter-spacing:0.12em; padding:2px 6px; text-transform:uppercase; }
+  .gi-actions { display:flex; gap:5px; margin-top:2px; }
+  @keyframes graph-pulse {
+    0%,100% { opacity:1; }
+    50% { opacity:0.35; }
+  }
+  .gn-pulse { animation: graph-pulse 1.2s ease-in-out infinite; }
 
   /* ── SETTINGS ── */
   .settings-body { flex:1; overflow-y:auto; scrollbar-width:none; }
@@ -286,15 +269,24 @@
   .toggle.on { background:var(--orange); border-color:var(--orange); }
   .toggle::after { content:''; position:absolute; top:2px; left:2px; width:11px; height:11px; background:var(--black); transition:transform 0.15s; }
   .toggle.on::after { transform:translateX(17px); }
+  /* Font size slider */
+  .slider-row { padding:11px 14px; border-bottom:var(--border); }
+  .slider-top { display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; }
+  .slider-lbl { font-size:12.5px; letter-spacing:0.04em; }
+  .slider-val { font-size:11.5px; color:var(--orange); letter-spacing:0.08em; min-width:40px; text-align:right; }
+  .slider-track { display:flex; align-items:center; gap:7px; }
+  .sz-label { font-size:9px; color:var(--white-dimmer); letter-spacing:0.1em; }
+  input[type=range].ui-slider {
+    flex:1; -webkit-appearance:none; appearance:none;
+    height:3px; background:var(--black-4); outline:none; cursor:pointer;
+  }
+  input[type=range].ui-slider::-webkit-slider-thumb { -webkit-appearance:none; width:14px; height:14px; background:var(--orange); cursor:pointer; border-radius:0; }
+  input[type=range].ui-slider::-moz-range-thumb { width:14px; height:14px; background:var(--orange); cursor:pointer; border-radius:0; border:none; }
 
   /* ── MODALS ── */
   .overlay { position:fixed; inset:0; background:rgba(0,0,0,0.88); z-index:1000; display:none; align-items:flex-end; }
   .overlay.open { display:flex; }
-  .sheet {
-    width:100%; max-width:480px; margin:0 auto; background:var(--black-2);
-    border-top:2px solid var(--orange); max-height:90dvh; display:flex; flex-direction:column;
-    animation:up 0.24s ease;
-  }
+  .sheet { width:100%; max-width:480px; margin:0 auto; background:var(--black-2); border-top:2px solid var(--orange); max-height:90dvh; display:flex; flex-direction:column; animation:up 0.24s ease; }
   @keyframes up { from{transform:translateY(100%)} to{transform:translateY(0)} }
   .m-hdr { display:flex; align-items:center; justify-content:space-between; padding:13px 14px; border-bottom:var(--border); flex-shrink:0; }
   .m-lbl { font-size: 10px; letter-spacing:0.2em; color:var(--orange); text-transform:uppercase; }
@@ -314,19 +306,48 @@
 
   .af-overlay { position:fixed; inset:0; background:rgba(0,0,0,0.92); z-index:1100; display:none; align-items:center; justify-content:center; padding:18px; }
   .af-overlay.open { display:flex; }
-  .af-box { width:100%; max-width:440px; background:var(--black-2); border:1px solid var(--orange); animation:zin 0.2s ease; }
+  .af-box { width:100%; max-width:440px; background:var(--black-2); border:1px solid var(--orange); animation:zin 0.2s ease; max-height:92dvh; display:flex; flex-direction:column; }
   @keyframes zin { from{opacity:0;transform:scale(0.96)} to{opacity:1;transform:scale(1)} }
-  .af-hdr { display:flex; align-items:center; justify-content:space-between; padding:13px 14px; border-bottom:var(--border); }
+  .af-hdr { display:flex; align-items:center; justify-content:space-between; padding:13px 14px; border-bottom:var(--border); flex-shrink:0; }
   .af-title { font-size: 12.5px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; }
-  .af-body { padding:14px; }
+  .af-body { padding:14px; overflow-y:auto; scrollbar-width:thin; }
   .f-grp { margin-bottom:13px; }
   .f-lbl { display:block; font-size: 9.5px; letter-spacing:0.15em; color:var(--white-dimmer); text-transform:uppercase; margin-bottom:5px; }
   .f-inp { width:100%; background:var(--black); border:var(--border); color:var(--white); font-family:var(--font); font-size: 12.5px; padding:9px 11px; outline:none; transition:border-color 0.15s; }
   .f-inp:focus { border-color:var(--orange); }
   .f-inp::placeholder { color:var(--white-dimmer); }
-  .af-foot { display:flex; gap:7px; padding:11px 14px; border-top:var(--border); }
+  .af-foot { display:flex; gap:7px; padding:11px 14px; border-top:var(--border); flex-shrink:0; }
   .af-foot .btn-s { flex:1; margin:0; }
   .af-foot .btn-p { flex:1; }
+
+  /* TAG PICKER (in connect node modal) */
+  .tag-picker { display:flex; flex-wrap:wrap; gap:5px; margin-top:4px; }
+  .tp-chip {
+    font-family:var(--font); font-size:9px; letter-spacing:0.1em; text-transform:uppercase;
+    padding:3px 8px; background:transparent; border:1px solid var(--black-4);
+    color:var(--white-dimmer); cursor:pointer; transition:all 0.15s;
+  }
+  .tp-chip:hover { border-color:var(--orange); color:var(--orange); }
+  .tp-chip.sel-or { border-color:var(--orange); color:var(--orange); background:rgba(232,85,0,0.15); }
+  .tp-chip.sel-rd { border-color:var(--red); color:var(--red); background:rgba(255,45,45,0.15); }
+  .tp-chip.sel-gr { border-color:var(--green); color:var(--green); background:rgba(0,255,65,0.12); }
+  .tp-chip.sel- { border-color:var(--white-dim); color:var(--white-dim); background:rgba(240,237,228,0.08); }
+  .tp-new-row { display:flex; gap:5px; margin-top:7px; }
+  .tp-new-inp { flex:1; background:var(--black); border:var(--border); color:var(--white); font-family:var(--font); font-size:11px; padding:5px 8px; outline:none; transition:border-color 0.15s; }
+  .tp-new-inp:focus { border-color:var(--orange); }
+  .tp-new-inp::placeholder { color:var(--white-dimmer); }
+  .tp-add-btn { font-family:var(--font); font-size:10px; letter-spacing:0.08em; text-transform:uppercase; padding:5px 10px; background:transparent; border:1px solid var(--black-4); color:var(--white-dimmer); cursor:pointer; transition:all 0.15s; white-space:nowrap; }
+  .tp-add-btn:hover { border-color:var(--orange); color:var(--orange); }
+
+  /* TAG MANAGER MODAL */
+  .tm-tag-row { display:flex; align-items:center; justify-content:space-between; padding:8px 0; border-bottom:1px solid var(--black-3); }
+  .tm-tag-info { display:flex; align-items:center; gap:8px; }
+  .tm-del { font-family:var(--font); font-size:9px; letter-spacing:0.08em; padding:3px 7px; background:transparent; border:1px solid var(--black-4); color:var(--white-dimmer); cursor:pointer; transition:all 0.15s; }
+  .tm-del:hover { border-color:var(--red); color:var(--red); }
+  .tm-empty { font-size:11px; color:var(--white-dimmer); letter-spacing:0.1em; padding:14px 0; text-align:center; }
+  .color-pick { display:flex; gap:5px; margin-top:5px; }
+  .cp-opt { width:18px; height:18px; cursor:pointer; border:2px solid transparent; transition:border-color 0.12s; }
+  .cp-opt.sel { border-color:var(--white); }
 
   #toast {
     position:fixed; bottom:72px; left:50%; transform:translateX(-50%);
@@ -351,10 +372,8 @@
     <div class="login-mode" id="login-mode-label">ENTER ACCESS CODE</div>
     <div class="login-err" id="login-err"></div>
     <div class="pin-dots" id="pin-dots">
-      <div class="pin-dot" id="pd0"></div>
-      <div class="pin-dot" id="pd1"></div>
-      <div class="pin-dot" id="pd2"></div>
-      <div class="pin-dot" id="pd3"></div>
+      <div class="pin-dot" id="pd0"></div><div class="pin-dot" id="pd1"></div>
+      <div class="pin-dot" id="pd2"></div><div class="pin-dot" id="pd3"></div>
     </div>
     <div class="keypad">
       <button class="k-btn" onclick="pinKey('1')">1</button>
@@ -378,12 +397,10 @@
 <div id="s-landing" class="screen">
   <div class="status-bar">
     <div class="s-left">
-      <div class="dot"></div>
-      <span>STATUS: ONLINE</span>
-      <span style="color:var(--white-dimmer)">|</span>
-      <span>SYSTEM.INITIALIZE_</span>
+      <div class="dot"></div><span>STATUS: ONLINE</span>
+      <span style="color:var(--white-dimmer)">|</span><span>SYSTEM.INITIALIZE_</span>
     </div>
-    <div>v0.9.2</div>
+    <div>v0.9.3</div>
   </div>
   <div class="landing-body">
     <div class="l-label">// NEURAL OBSERVATION INTERFACE</div>
@@ -416,10 +433,10 @@
     <button class="btn-s" onclick="openAF()">+ ADD_SIGNAL_SOURCE</button>
   </div>
   <nav class="bottom-nav">
-    <button class="nav-btn active" onclick="go('landing',this)"><span class="nav-icon">⬡</span>DASHBOARD</button>
+    <button class="nav-btn active" onclick="go('landing',this)"><span class="nav-icon">⬡</span>DASH</button>
     <button class="nav-btn" onclick="go('feed',this)"><span class="nav-icon">◈</span>LOGS</button>
     <button class="nav-btn" onclick="go('nodes',this)"><span class="nav-icon">◉</span>NODES</button>
-    <button class="nav-btn" onclick="go('settings',this)"><span class="nav-icon">⚙</span>SETTINGS</button>
+    <button class="nav-btn" onclick="go('settings',this)"><span class="nav-icon">⚙</span>CONFIG</button>
   </nav>
 </div>
 
@@ -448,16 +465,25 @@
   </div>
   <div class="feed-list" id="feed-list-body"><!-- dynamic --></div>
   <nav class="bottom-nav">
-    <button class="nav-btn" onclick="go('landing',this)"><span class="nav-icon">⬡</span>DASHBOARD</button>
+    <button class="nav-btn" onclick="go('landing',this)"><span class="nav-icon">⬡</span>DASH</button>
     <button class="nav-btn active" onclick="go('feed',this)"><span class="nav-icon">◈</span>LOGS</button>
     <button class="nav-btn" onclick="go('nodes',this)"><span class="nav-icon">◉</span>NODES</button>
-    <button class="nav-btn" onclick="go('settings',this)"><span class="nav-icon">⚙</span>SETTINGS</button>
+    <button class="nav-btn" onclick="go('settings',this)"><span class="nav-icon">⚙</span>CONFIG</button>
   </nav>
 </div>
 
 <!-- ════════ NODES ════════ -->
 <div id="s-nodes" class="screen">
-  <div class="page-hdr"><div class="page-sub">// CONNECTED NODES</div><div class="page-title">SIGNAL SOURCES</div></div>
+  <div class="page-hdr">
+    <div class="page-sub">// CONNECTED NODES</div>
+    <div class="page-hdr-row">
+      <div class="page-title">SIGNAL SOURCES</div>
+      <div class="view-toggle">
+        <button class="nv-btn active" id="nv-list" onclick="setNodeView('list')">≡ LIST</button>
+        <button class="nv-btn" id="nv-graph" onclick="setNodeView('graph')">◈ MAP</button>
+      </div>
+    </div>
+  </div>
   <div class="status-bar">
     <div class="s-left">
       <div class="dot"></div><span id="nodes-on-count">— ACTIVE</span>
@@ -466,18 +492,33 @@
     </div>
     <div>SYNC: 3m AGO</div>
   </div>
-  <div class="search-row">
-    <span class="search-ico">⌕</span>
-    <input class="s-input" id="node-search" type="text" placeholder="SEARCH_NODES..." oninput="renderNodes(this.value)">
+
+  <!-- LIST VIEW -->
+  <div id="node-list-view" style="display:flex;flex-direction:column;flex:1;overflow:hidden;">
+    <div class="search-row">
+      <span class="search-ico">⌕</span>
+      <input class="s-input" id="node-search" type="text" placeholder="SEARCH_NODES..." oninput="renderNodes(this.value)">
+    </div>
+    <div class="nodes-body">
+      <div id="nodes-list"><!-- dynamic --></div>
+    </div>
   </div>
-  <div class="nodes-body">
-    <div id="nodes-list"><!-- dynamic --></div>
+
+  <!-- GRAPH VIEW -->
+  <div id="node-graph-view" class="graph-view">
+    <div class="graph-canvas" id="graph-canvas">
+      <svg id="graph-svg" xmlns="http://www.w3.org/2000/svg"></svg>
+    </div>
+    <div class="graph-info-panel" id="graph-info-panel">
+      <div class="gi-empty">// TAP A NODE TO INSPECT</div>
+    </div>
   </div>
+
   <nav class="bottom-nav">
-    <button class="nav-btn" onclick="go('landing',this)"><span class="nav-icon">⬡</span>DASHBOARD</button>
+    <button class="nav-btn" onclick="go('landing',this)"><span class="nav-icon">⬡</span>DASH</button>
     <button class="nav-btn" onclick="go('feed',this)"><span class="nav-icon">◈</span>LOGS</button>
     <button class="nav-btn active" onclick="go('nodes',this)"><span class="nav-icon">◉</span>NODES</button>
-    <button class="nav-btn" onclick="go('settings',this)"><span class="nav-icon">⚙</span>SETTINGS</button>
+    <button class="nav-btn" onclick="go('settings',this)"><span class="nav-icon">⚙</span>CONFIG</button>
   </nav>
 </div>
 
@@ -485,8 +526,8 @@
 <div id="s-settings" class="screen">
   <div class="page-hdr"><div class="page-sub">// SYSTEM CONFIGURATION</div><div class="page-title">SETTINGS</div></div>
   <div class="status-bar">
-    <div class="s-left"><div class="dot"></div><span>GAZER OS v0.9.2</span></div>
-    <div>BUILD 20260308</div>
+    <div class="s-left"><div class="dot"></div><span>GAZER OS v0.9.3</span></div>
+    <div>BUILD 20260309</div>
   </div>
   <div class="settings-body">
     <div class="section-lbl">// SIGNAL PROCESSING</div>
@@ -495,6 +536,17 @@
     <div class="s-row"><span class="s-lbl">REFRESH_INTERVAL</span><span class="s-val">15 MIN</span></div>
     <div class="s-row"><span class="s-lbl">MAX_SIGNALS_PER_NODE</span><span class="s-val">50</span></div>
     <div class="section-lbl">// DISPLAY</div>
+    <div class="slider-row">
+      <div class="slider-top">
+        <span class="slider-lbl">UI_TEXT_SIZE</span>
+        <span class="slider-val" id="ui-size-val">14px</span>
+      </div>
+      <div class="slider-track">
+        <span class="sz-label">A</span>
+        <input type="range" class="ui-slider" id="ui-size-slider" min="12" max="22" step="1" value="14" oninput="setUiSize(parseInt(this.value))">
+        <span class="sz-label" style="font-size:13px">A</span>
+      </div>
+    </div>
     <div class="s-row"><span class="s-lbl">COMPACT_MODE</span><div class="toggle" onclick="this.classList.toggle('on')"></div></div>
     <div class="s-row"><span class="s-lbl">SCANLINES_OVERLAY</span><div class="toggle on" onclick="this.classList.toggle('on')"></div></div>
     <div class="s-row"><span class="s-lbl">ACCENT_COLOR</span><span class="s-val">ORANGE #E85500</span></div>
@@ -503,6 +555,8 @@
     <div class="s-row"><span class="s-lbl">OFFLINE_CACHE</span><div class="toggle on" onclick="this.classList.toggle('on')"></div></div>
     <div class="s-row"><span class="s-lbl">EXPORT_OPML_XML</span><span class="s-val-link" onclick="exportBackup('xml')">DOWNLOAD →</span></div>
     <div class="s-row"><span class="s-lbl">EXPORT_MARKDOWN</span><span class="s-val-link" onclick="exportBackup('md')">DOWNLOAD →</span></div>
+    <div class="section-lbl">// TAGS &amp; TAXONOMY</div>
+    <div class="s-row"><span class="s-lbl">MANAGE_TAGS</span><span class="s-val-link" onclick="openTagManager()">EDIT DATABASE →</span></div>
     <div class="section-lbl">// ACCOUNT</div>
     <div class="s-row"><span class="s-lbl">USER_ID</span><span class="s-val">VESPER_01</span></div>
     <div class="s-row"><span class="s-lbl">SYNC_BACKEND</span><span class="s-val">SUPABASE</span></div>
@@ -512,10 +566,10 @@
     <div class="s-row"><span class="s-lbl">LOCK_SESSION</span><span class="s-val-danger" onclick="logout()">LOCK NOW →</span></div>
   </div>
   <nav class="bottom-nav">
-    <button class="nav-btn" onclick="go('landing',this)"><span class="nav-icon">⬡</span>DASHBOARD</button>
+    <button class="nav-btn" onclick="go('landing',this)"><span class="nav-icon">⬡</span>DASH</button>
     <button class="nav-btn" onclick="go('feed',this)"><span class="nav-icon">◈</span>LOGS</button>
     <button class="nav-btn" onclick="go('nodes',this)"><span class="nav-icon">◉</span>NODES</button>
-    <button class="nav-btn active" onclick="go('settings',this)"><span class="nav-icon">⚙</span>SETTINGS</button>
+    <button class="nav-btn active" onclick="go('settings',this)"><span class="nav-icon">⚙</span>CONFIG</button>
   </nav>
 </div>
 
@@ -543,10 +597,50 @@
       <div class="f-grp"><label class="f-lbl">RSS / ATOM FEED URL</label><input class="f-inp" type="url" placeholder="https://example.com/feed.xml" id="f-url"></div>
       <div class="f-grp"><label class="f-lbl">NODE LABEL (OPTIONAL)</label><input class="f-inp" type="text" placeholder="MY_CUSTOM_FEED" id="f-name"></div>
       <div class="f-grp"><label class="f-lbl">CATEGORY</label><input class="f-inp" type="text" placeholder="TECH / SECURITY / SCIENCE" id="f-cat"></div>
+      <div class="f-grp">
+        <label class="f-lbl">TAGS — SELECT FROM DATABASE</label>
+        <div class="tag-picker" id="tag-picker"><!-- dynamic --></div>
+        <div class="tp-new-row">
+          <input class="tp-new-inp" type="text" id="tp-new-input" placeholder="+ NEW TAG NAME" maxlength="16">
+          <select class="tp-new-inp" id="tp-new-color" style="max-width:90px">
+            <option value="or">ORANGE</option>
+            <option value="rd">RED</option>
+            <option value="gr">GREEN</option>
+            <option value="">GREY</option>
+          </select>
+          <button class="tp-add-btn" onclick="addNewTagFromForm()">+ ADD</button>
+        </div>
+      </div>
     </div>
     <div class="af-foot">
       <button class="btn-s" onclick="closeAF()">CANCEL</button>
       <button class="btn-p" onclick="connectNode()">CONNECT →</button>
+    </div>
+  </div>
+</div>
+
+<!-- ════════ TAG MANAGER MODAL ════════ -->
+<div class="af-overlay" id="ov-tags">
+  <div class="af-box">
+    <div class="af-hdr"><span class="af-title">⊕ TAG DATABASE</span><button class="m-close" onclick="closeTagManager()">✕</button></div>
+    <div class="af-body">
+      <div id="tm-tags-list"><!-- dynamic --></div>
+      <div style="margin-top:14px;padding-top:11px;border-top:var(--border)">
+        <div class="f-lbl" style="margin-bottom:8px">CREATE NEW TAG</div>
+        <div class="tp-new-row">
+          <input class="tp-new-inp" type="text" id="tm-new-name" placeholder="TAG NAME" maxlength="16">
+          <select class="tp-new-inp" id="tm-new-color" style="max-width:90px">
+            <option value="or">ORANGE</option>
+            <option value="rd">RED</option>
+            <option value="gr">GREEN</option>
+            <option value="">GREY</option>
+          </select>
+          <button class="tp-add-btn" onclick="addTagToDb()">+ CREATE</button>
+        </div>
+      </div>
+    </div>
+    <div class="af-foot">
+      <button class="btn-p" onclick="closeTagManager()">DONE ✓</button>
     </div>
   </div>
 </div>
@@ -556,61 +650,87 @@
 
 <script>
 // ─── STATE ────────────────────────────────────────────────
+const DEAULT_TAGS = [
+  { id:'t1', name:'AI / ML',   color:'or' },
+  { id:'t2', name:'SECURITY',  color:'rd' },
+  { id:'t3', name:'MARKETS',   color:'gr' },
+  { id:'t4', name:'SCIENCE',   color:'or' },
+  { id:'t5', name:'OPEN_SRC',  color:''   },
+  { id:'t6', name:'POLICY',    color:'or' },
+  { id:'t7', name:'HARDWARE',  color:''   },
+  { id:'t8', name:'PRIVACY',   color:'rd' },
+];
 const STATE = {
-  pinBuffer: '',
-  pinMode: 'enter',   // 'enter' | 'set' | 'confirm'
-  pinTemp: '',
+  pinBuffer: '', pinMode: 'enter', pinTemp: '',
   nodes: [
-    { id:1, name:'The Verge',           url:'theverge.com/rss/index.xml',          cat:'TECH & SCIENCE',   status:'on',   count:12 },
-    { id:2, name:'Ars Technica',         url:'feeds.arstechnica.com/arstechnica',   cat:'TECH & SCIENCE',   status:'on',   count:8  },
-    { id:3, name:'MIT Technology Review',url:'technologyreview.com/feed/',          cat:'TECH & SCIENCE',   status:'idle', count:5  },
-    { id:4, name:'Krebs on Security',    url:'krebsonsecurity.com/feed/',           cat:'SECURITY & INTEL', status:'on',   count:3  },
-    { id:5, name:'Hacker News',          url:'news.ycombinator.com/rss',            cat:'SECURITY & INTEL', status:'on',   count:30 },
-    { id:6, name:'Reuters Tech',         url:'feeds.reuters.com/reuters/tech',      cat:'GLOBAL MARKETS',   status:'on',   count:9  },
-    { id:7, name:'Bloomberg Tech',       url:'bloomberg.com/feeds/technology',      cat:'GLOBAL MARKETS',   status:'idle', count:0  },
+    { id:1, name:'The Verge',            url:'theverge.com/rss/index.xml',          cat:'TECH & SCIENCE',   status:'on',   count:12, tags:['t1','t7'] },
+    { id:2, name:'Ars Technica',          url:'feeds.arstechnica.com/arstechnica',   cat:'TECH & SCIENCE',   status:'on',   count:8,  tags:['t1','t5'] },
+    { id:3, name:'MIT Technology Review', url:'technologyreview.com/feed/',          cat:'TECH & SCIENCE',   status:'idle', count:5,  tags:['t1','t4'] },
+    { id:4, name:'Krebs on Security',     url:'krebsonsecurity.com/feed/',           cat:'SECURITY & INTEL', status:'on',   count:3,  tags:['t2','t8'] },
+    { id:5, name:'Hacker News',           url:'news.ycombinator.com/rss',            cat:'SECURITY & INTEL', status:'on',   count:30, tags:['t2','t5','t1'] },
+    { id:6, name:'Reuters Tech',          url:'feeds.reuters.com/reuters/tech',      cat:'GLOBAL MARKETS',   status:'on',   count:9,  tags:['t3','t6'] },
+    { id:7, name:'Bloomberg Tech',        url:'bloomberg.com/feeds/technology',      cat:'GLOBAL MARKETS',   status:'idle', count:0,  tags:['t3'] },
   ],
   nextNodeId: 8,
+  tagsDB: JSON.parse(localStorage.getItem('gazer_tags') || JSON.stringify(DEAULT_TAGS)),
+  nextTagId: 9,
+  formTags: [],
+  nodeView: 'list',
   favorites: new Set(JSON.parse(localStorage.getItem('gazer_favs') || '[]')),
   currentArticle: 0,
   currentTab: 'ALL_SIGNALS',
+  uiSize: parseInt(localStorage.getItem('gazer_ui_size') || '14'),
+  selectedGraphNode: null,
 };
 
 // ─── ARTICLES ─────────────────────────────────────────────
 const ARTS = [
-  { id:0, src:'SEC_INTEL',   bdg:'CRITICAL', time:'02:14 UTC',
-    url:'https://krebsonsecurity.com',
+  { id:0, src:'SEC_INTEL',   bdg:'CRITICAL', time:'02:14 UTC', url:'https://krebsonsecurity.com',
     title:'CRITICAL SYSTEM BREACH DETECTED',
     sum:'AI ANALYSIS: Coordinated multi-vector attack against global financial infrastructure. High confidence attribution to state-sponsored actor. Mitigation protocols deployed.',
-    body:'Security analysts have confirmed a coordinated cyberattack targeting financial infrastructure across 12 geographic regions. The attack vector combines zero-day exploits with social engineering. Emergency response teams are working to contain the breach. Preliminary reports suggest exfiltration of approximately 2.3TB of encrypted transaction data before detection.',
+    body:'Security analysts have confirmed a coordinated cyberattack targeting financial infrastructure across 12 geographic regions. The attack vector combines zero-day exploits with social engineering. Preliminary reports suggest exfiltration of approximately 2.3TB of encrypted transaction data before detection.',
     tags:['THREAT: OMEGA','SECURED: PARTIAL'], cardClass:'c-crit', badgeCls:'b-crit', mapBox:true },
-  { id:1, src:'TECH_FEED',   bdg:'LIVE',     time:'08:32 UTC',
-    url:'https://theverge.com',
+  { id:1, src:'TECH_FEED',   bdg:'LIVE',     time:'08:32 UTC', url:'https://theverge.com',
     title:'GLOBAL DATA SYNC PROTOCOL UPGRADE',
     sum:'AI ANALYSIS: Major performance improvement in distributed systems. 340ms latency reduction represents 40% improvement over baseline. Implementation risk: LOW.',
-    body:'The new distributed synchronization mechanism developed by a consortium of 14 technology companies has entered production deployment. Benchmarks show consistent 340ms latency reduction across all tested configurations. The protocol uses a novel consensus mechanism that eliminates centralized coordination.',
+    body:'The new distributed synchronization mechanism developed by a consortium of 14 technology companies has entered production deployment. Benchmarks show consistent 340ms latency reduction across all tested configurations.',
     tags:['VERIFIED','INFRA'], cardClass:'c-live', badgeCls:'b-live' },
-  { id:2, src:'MARKET_INTEL',bdg:'NEW',      time:'11:05 UTC',
-    url:'https://reuters.com/technology',
+  { id:2, src:'MARKET_INTEL',bdg:'NEW',      time:'11:05 UTC', url:'https://reuters.com/technology',
     title:'NEURAL CHIP SHORTAGE IMMINENT',
     sum:'AI ANALYSIS: Supply chain stress indicators suggest shortage within 60-90 days. Three major manufacturers showing reduced output. Impact on AI model training: SIGNIFICANT.',
-    body:'Industry analysts warn of a significant shortage in neural processing units expected within the next quarter. The shortage stems from increased demand from AI model training and disruptions to raw material supply chains. Strategic reserves are being activated through at least Q3.',
+    body:'Industry analysts warn of a significant shortage in neural processing units expected within the next quarter. The shortage stems from increased demand from AI model training and disruptions to raw material supply chains.',
     tags:['HIGH_PRIORITY','SUPPLY_CHAIN'], cardClass:'c-hi', badgeCls:'b-new' },
-  { id:3, src:'SCIENCE_LOG', bdg:'VERIFIED', time:'14:20 UTC',
-    url:'https://technologyreview.com',
+  { id:3, src:'SCIENCE_LOG', bdg:'VERIFIED', time:'14:20 UTC', url:'https://technologyreview.com',
     title:'QUANTUM ENTANGLEMENT COMMUNICATION BREAKTHROUGH',
     sum:'AI ANALYSIS: Peer-reviewed result confirmed by 3 independent labs. 99.7% fidelity at 10km is a new world record. Commercial viability timeline: 18 months.',
-    body:'A joint research team has achieved stable quantum entanglement across a 10km fiber optic link with 99.7% fidelity — a new world record. The achievement unlocks possibilities for theoretically unbreakable quantum-encrypted communications. The team expects to scale to 50km within 6 months.',
+    body:'A joint research team has achieved stable quantum entanglement across a 10km fiber optic link with 99.7% fidelity — a new world record. The achievement unlocks possibilities for theoretically unbreakable quantum-encrypted communications.',
     tags:['QUANTUM','RESEARCH'], cardClass:'c-mid', badgeCls:'b-ver' },
-  { id:4, src:'POLICY_WATCH',bdg:'NEW',      time:'16:48 UTC',
-    url:'https://arstechnica.com',
+  { id:4, src:'POLICY_WATCH',bdg:'NEW',      time:'16:48 UTC', url:'https://arstechnica.com',
     title:'AI GOVERNANCE FRAMEWORK ENTERS FINAL REVIEW',
     sum:'AI ANALYSIS: International coalition of 47 nations. Framework covers frontier AI above 10^25 FLOPs. Enforcement: binding with sanctions. Industry impact: HIGH.',
-    body:'An international coalition representing 47 nations has finalized a comprehensive governance framework for frontier AI systems. The binding agreement establishes compute thresholds, mandatory safety evaluations, incident reporting requirements, and emergency shutdown protocols. Implementation begins Q2.',
+    body:'An international coalition representing 47 nations has finalized a comprehensive governance framework for frontier AI systems. The binding agreement establishes compute thresholds, mandatory safety evaluations, and emergency shutdown protocols.',
     tags:['REGULATORY','AI_POLICY'], cardClass:'c-hi', badgeCls:'b-new' }
 ];
 
+// ─── UI SIZE ──────────────────────────────────────────────
+function initUiSize() {
+  const sz = STATE.uiSize;
+  document.documentElement.style.fontSize = sz + 'px';
+  const slider = document.getElementById('ui-size-slider');
+  const label  = document.getElementById('ui-size-val');
+  if (slider) slider.value = sz;
+  if (label)  label.textContent = sz + 'px';
+}
+function setUiSize(val) {
+  STATE.uiSize = val;
+  document.documentElement.style.fontSize = val + 'px';
+  document.getElementById('ui-size-val').textContent = val + 'px';
+  localStorage.setItem('gazer_ui_size', val);
+}
+
 // ─── LOGIN ────────────────────────────────────────────────
 function initApp() {
+  initUiSize();
   const stored = localStorage.getItem('gazer_pin');
   if (!stored) {
     STATE.pinMode = 'set';
@@ -623,20 +743,15 @@ function initApp() {
   }
   updatePinDots();
 }
-
 function pinKey(d) {
   if (STATE.pinBuffer.length >= 4) return;
-  STATE.pinBuffer += d;
-  updatePinDots();
+  STATE.pinBuffer += d; updatePinDots();
   if (STATE.pinBuffer.length === 4) setTimeout(pinSubmit, 180);
 }
-
 function pinBackspace() {
-  STATE.pinBuffer = STATE.pinBuffer.slice(0, -1);
-  updatePinDots();
+  STATE.pinBuffer = STATE.pinBuffer.slice(0, -1); updatePinDots();
   document.getElementById('login-err').textContent = '';
 }
-
 function updatePinDots() {
   for (let i = 0; i < 4; i++) {
     const d = document.getElementById('pd' + i);
@@ -644,58 +759,38 @@ function updatePinDots() {
     d.classList.remove('err');
   }
 }
-
 function pinError() {
   for (let i = 0; i < 4; i++) document.getElementById('pd' + i).classList.add('err');
   setTimeout(() => { STATE.pinBuffer = ''; updatePinDots(); }, 600);
 }
-
 function pinSubmit() {
-  const buf = STATE.pinBuffer;
-  if (buf.length < 4) return;
+  const buf = STATE.pinBuffer; if (buf.length < 4) return;
   if (STATE.pinMode === 'set') {
-    STATE.pinTemp = buf;
-    STATE.pinMode = 'confirm';
-    STATE.pinBuffer = '';
+    STATE.pinTemp = buf; STATE.pinMode = 'confirm'; STATE.pinBuffer = '';
     document.getElementById('login-mode-label').textContent = 'CONFIRM ACCESS CODE';
-    document.getElementById('login-err').textContent = '';
-    updatePinDots();
+    document.getElementById('login-err').textContent = ''; updatePinDots();
   } else if (STATE.pinMode === 'confirm') {
     if (buf === STATE.pinTemp) {
-      localStorage.setItem('gazer_pin', btoa(buf));
-      STATE.pinBuffer = '';
-      unlockApp();
+      localStorage.setItem('gazer_pin', btoa(buf)); STATE.pinBuffer = ''; unlockApp();
     } else {
       document.getElementById('login-err').textContent = '// CODES DO NOT MATCH — RETRY';
-      STATE.pinMode = 'set';
-      STATE.pinTemp = '';
-      pinError();
+      STATE.pinMode = 'set'; STATE.pinTemp = ''; pinError();
       setTimeout(() => { document.getElementById('login-mode-label').textContent = 'INITIALIZE ACCESS CODE'; }, 650);
     }
   } else {
     const stored = localStorage.getItem('gazer_pin');
-    if (stored && atob(stored) === buf) {
-      STATE.pinBuffer = '';
-      unlockApp();
-    } else {
-      document.getElementById('login-err').textContent = '// INVALID ACCESS CODE';
-      pinError();
-    }
+    if (stored && atob(stored) === buf) { STATE.pinBuffer = ''; unlockApp(); }
+    else { document.getElementById('login-err').textContent = '// INVALID ACCESS CODE'; pinError(); }
   }
 }
-
 function unlockApp() {
   document.getElementById('login-err').textContent = '';
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
   document.getElementById('s-landing').classList.add('active');
-  renderFeed('ALL_SIGNALS');
-  renderNodes();
-  updateFavCount();
+  renderFeed('ALL_SIGNALS'); renderNodes(); updateFavCount();
 }
-
 function logout() {
-  STATE.pinBuffer = '';
-  STATE.pinMode = 'enter';
+  STATE.pinBuffer = ''; STATE.pinMode = 'enter';
   document.getElementById('login-mode-label').textContent = 'ENTER ACCESS CODE';
   document.getElementById('login-err').textContent = '';
   document.getElementById('login-hint').style.display = 'block';
@@ -703,11 +798,8 @@ function logout() {
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
   document.getElementById('s-login').classList.add('active');
 }
-
 function changePin() {
-  STATE.pinBuffer = '';
-  STATE.pinMode = 'set';
-  STATE.pinTemp = '';
+  STATE.pinBuffer = ''; STATE.pinMode = 'set'; STATE.pinTemp = '';
   document.getElementById('login-mode-label').textContent = 'SET NEW ACCESS CODE';
   document.getElementById('login-err').textContent = '';
   document.getElementById('login-hint').style.display = 'none';
@@ -715,12 +807,9 @@ function changePin() {
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
   document.getElementById('s-login').classList.add('active');
 }
-
 function loginReset() {
   localStorage.removeItem('gazer_pin');
-  STATE.pinBuffer = '';
-  STATE.pinMode = 'set';
-  STATE.pinTemp = '';
+  STATE.pinBuffer = ''; STATE.pinMode = 'set'; STATE.pinTemp = '';
   document.getElementById('login-mode-label').textContent = 'INITIALIZE ACCESS CODE';
   document.getElementById('login-err').textContent = '// PREVIOUS CODE CLEARED';
   document.getElementById('login-hint').style.display = 'none';
@@ -731,8 +820,12 @@ function loginReset() {
 function go(name, btn) {
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
   document.getElementById('s-' + name).classList.add('active');
-  if (name === 'nodes') renderNodes(document.getElementById('node-search')?.value || '');
-  if (name === 'feed')  renderFeed(STATE.currentTab);
+  if (name === 'nodes') {
+    renderNodes(document.getElementById('node-search')?.value || '');
+    if (STATE.nodeView === 'graph') setTimeout(renderGraph, 50);
+  }
+  if (name === 'feed') renderFeed(STATE.currentTab);
+  if (name === 'settings') initUiSize();
   const idx = Array.from(btn.parentElement.children).indexOf(btn);
   document.querySelectorAll('.bottom-nav').forEach(nav => {
     nav.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
@@ -740,7 +833,6 @@ function go(name, btn) {
     if (items[idx]) items[idx].classList.add('active');
   });
 }
-
 function goFeed() {
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
   document.getElementById('s-feed').classList.add('active');
@@ -748,7 +840,6 @@ function goFeed() {
   document.querySelectorAll('.nav-btn:nth-child(2)').forEach(b => b.classList.add('active'));
   document.querySelectorAll('.nav-btn:nth-child(1),.nav-btn:nth-child(3),.nav-btn:nth-child(4)').forEach(b => b.classList.remove('active'));
 }
-
 function setTab(btn, tabName) {
   btn.parentElement.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
   btn.classList.add('active');
@@ -756,20 +847,141 @@ function setTab(btn, tabName) {
   renderFeed(tabName);
 }
 
+// ─── NODE VIEW TOGGLE ─────────────────────────────────────
+function setNodeView(view) {
+  STATE.nodeView = view;
+  document.getElementById('nv-list').classList.toggle('active', view === 'list');
+  document.getElementById('nv-graph').classList.toggle('active', view === 'graph');
+  document.getElementById('node-list-view').style.display = view === 'list' ? 'flex' : 'none';
+  const gv = document.getElementById('node-graph-view');
+  gv.style.display = view === 'graph' ? 'flex' : 'none';
+  gv.classList.toggle('active', view === 'graph');
+  if (view === 'graph') setTimeout(renderGraph, 60);
+}
+
+// ─── GRAPH VISUALIZATION ──────────────────────────────────
+function renderGraph() {
+  const canvas  = document.getElementById('graph-canvas');
+  const svgEl   = document.getElementById('graph-svg');
+  const W = canvas.clientWidth  || 360;
+  const H = canvas.clientHeight || 300;
+  svgEl.setAttribute('viewBox', `0 0 ${W} ${H}`);
+
+  const cx = W / 2, cy = H / 2;
+  const R  = Math.min(W, H) * 0.36;
+  const nodes = STATE.nodes;
+  const cats  = [...new Set(nodes.map(n => n.cat))];
+  const CAT_COLORS = ['#E85500','#00FF41','#B44DFF','#00AAFF','#FF9900'];
+
+  // Compute positions: circular layout
+  const positions = nodes.map((n, i) => {
+    const angle = (i / nodes.length) * Math.PI * 2 - Math.PI / 2;
+    return { x: cx + R * Math.cos(angle), y: cy + R * Math.sin(angle), node: n };
+  });
+
+  let svg = '';
+
+  // Background grid lines
+  for (let xi = 0; xi < W; xi += 48)
+    svg += `<line x1="${xi}" y1="0" x2="${xi}" y2="${H}" stroke="#1A1A1A" stroke-width="0.5"/>`;
+  for (let yi = 0; yi < H; yi += 48)
+    svg += `<line x1="0" y1="${yi}" x2="${W}" y2="${yi}" stroke="#1A1A1A" stroke-width="0.5"/>`;
+
+  // Category connection lines (same-category nodes connected)
+  cats.forEach((cat, ci) => {
+    const catNodes = positions.filter(p => p.node.cat === cat);
+    for (let a = 0; a < catNodes.length; a++) {
+      for (let b = a + 1; b < catNodes.length; b++) {
+        const color = CAT_COLORS[ci % CAT_COLORS.length];
+        svg += `<line x1="${catNodes[a].x.toFixed(1)}" y1="${catNodes[a].y.toFixed(1)}" x2="${catNodes[b].x.toFixed(1)}" y2="${catNodes[b].y.toFixed(1)}" stroke="${color}" stroke-width="0.8" stroke-dasharray="4,4" opacity="0.25"/>`;
+      }
+    }
+  });
+
+  // Hub-to-node spokes
+  positions.forEach(p => {
+    const color = p.node.status === 'on' ? '#00FF41' : '#FF2D2D';
+    svg += `<line x1="${cx.toFixed(1)}" y1="${cy.toFixed(1)}" x2="${p.x.toFixed(1)}" y2="${p.y.toFixed(1)}" stroke="${color}" stroke-width="0.6" opacity="0.18"/>`;
+  });
+
+  // Center hub
+  svg += `<circle cx="${cx.toFixed(1)}" cy="${cy.toFixed(1)}" r="18" fill="#0A0A0A" stroke="#E85500" stroke-width="1.5"/>`;
+  svg += `<circle cx="${cx.toFixed(1)}" cy="${cy.toFixed(1)}" r="26" fill="none" stroke="#E85500" stroke-width="0.5" opacity="0.3"/>`;
+  svg += `<text x="${cx.toFixed(1)}" y="${(cy+4).toFixed(1)}" text-anchor="middle" font-family="'Space Mono',monospace" font-size="9" font-weight="700" fill="#E85500" letter-spacing="0.1em">GAZER</text>`;
+
+  // Node circles
+  positions.forEach((p, i) => {
+    const n   = p.node;
+    const isActive  = n.status === 'on';
+    const hasNews   = n.count > 0;
+    const isSelected = STATE.selectedGraphNode === n.id;
+    const baseColor = isActive ? '#00FF41' : '#FF2D2D';
+    const r = Math.max(7, Math.min(13, 7 + Math.sqrt(n.count)));
+    const strokeW = isSelected ? 2.5 : 1;
+    const strokeC = isSelected ? '#F0EDE4' : baseColor;
+
+    // Outer ping ring for active + has news
+    if (isActive && hasNews) {
+      svg += `<circle class="gn-pulse" cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="${r + 8}" fill="none" stroke="${baseColor}" stroke-width="1" opacity="0.4"/>`;
+    }
+
+    // Main circle
+    svg += `<circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="${r}" fill="${baseColor}" fill-opacity="${isActive ? '0.85' : '0.7'}" stroke="${strokeC}" stroke-width="${strokeW}" style="cursor:pointer" onclick="graphNodeClick(${n.id})"/>`;
+
+    // Count badge
+    if (n.count > 0) {
+      svg += `<circle cx="${(p.x + r * 0.7).toFixed(1)}" cy="${(p.y - r * 0.7).toFixed(1)}" r="6" fill="#E85500"/>`;
+      svg += `<text x="${(p.x + r * 0.7).toFixed(1)}" y="${(p.y - r * 0.7 + 4).toFixed(1)}" text-anchor="middle" font-family="monospace" font-size="7" font-weight="700" fill="#0A0A0A">${n.count > 99 ? '99+' : n.count}</text>`;
+    }
+
+    // Node label
+    const labelY = p.y > cy ? p.y + r + 14 : p.y - r - 6;
+    const words  = n.name.split(' ');
+    const label  = words.length > 2 ? words.slice(0, 2).join('_') : n.name.replace(/ /g,'_');
+    svg += `<text x="${p.x.toFixed(1)}" y="${labelY.toFixed(1)}" text-anchor="middle" font-family="'Space Mono',monospace" font-size="8" fill="#999999" letter-spacing="0.04em" style="cursor:pointer;text-transform:uppercase" onclick="graphNodeClick(${n.id})">${label.substring(0,14).toUpperCase()}</text>`;
+  });
+
+  svgEl.innerHTML = svg;
+}
+
+function graphNodeClick(id) {
+  STATE.selectedGraphNode = id;
+  const n = STATE.nodes.find(nd => nd.id === id);
+  if (!n) return;
+  const panel = document.getElementById('graph-info-panel');
+  const isOn  = n.status === 'on';
+  const tagChips = (n.tags || []).map(tid => {
+    const t = STATE.tagsDB.find(tt => tt.id === tid);
+    return t ? `<span class="n-tag-chip ntc-${t.color}">${t.name}</span>` : '';
+  }).join('');
+  panel.innerHTML = `
+    <div style="display:flex;align-items:center;gap:8px">
+      <div class="n-dot ${isOn ? 'n-on' : 'n-idle'}" style="flex-shrink:0;margin-top:0"></div>
+      <div class="gi-name">${n.name}</div>
+    </div>
+    <div class="gi-url">${n.url}</div>
+    <div class="gi-row">
+      <span class="gi-badge" style="background:${isOn?'rgba(0,255,65,0.15)':'rgba(255,45,45,0.15)'};color:${isOn?'var(--green)':'var(--red)'};border:1px solid ${isOn?'var(--green)':'var(--red)'}">${n.status.toUpperCase()}</span>
+      <span class="gi-badge" style="background:rgba(232,85,0,0.1);color:var(--orange);border:1px solid rgba(232,85,0,0.4)">${n.count} SIGNALS</span>
+      ${tagChips}
+    </div>
+    <div class="gi-actions">
+      <button class="n-btn ${isOn ? 'disc' : 'conn'}" onclick="toggleNodeStatus(${n.id});setTimeout(()=>{graphNodeClick(${n.id});renderGraph()},10)">${isOn ? '— DISCONNECT' : '+ CONNECT'}</button>
+      <button class="n-btn del" onclick="deleteNode(${n.id});document.getElementById('graph-info-panel').innerHTML='<div class=\\'gi-empty\\'>//NODE REMOVED</div>';renderGraph()">× DELETE</button>
+    </div>`;
+  renderGraph();
+}
+
 // ─── FEED RENDERING ───────────────────────────────────────
 const SHARE_SVG = `<svg viewBox="0 0 24 24" style="width:13px;height:13px;fill:currentColor;flex-shrink:0"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11A2.99 2.99 0 0018 8a3 3 0 000-6 3 3 0 00-3 3c0 .24.04.47.09.7L8.04 9.81A2.99 2.99 0 006 9a3 3 0 000 6c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65a2.92 2.92 0 002.92 2.92A2.92 2.92 0 0021 19a2.92 2.92 0 00-2.92-2.92z"/></svg>`;
-const MAP_BOX = `<div class="map-box"><svg class="map-svg" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="200" fill="#111"/><line x1="0" y1="100" x2="400" y2="100" stroke="#2A2A2A" stroke-width="0.5"/><line x1="200" y1="0" x2="200" y2="200" stroke="#2A2A2A" stroke-width="0.5"/><line x1="0" y1="50" x2="400" y2="50" stroke="#1A1A1A" stroke-width="0.5"/><line x1="0" y1="150" x2="400" y2="150" stroke="#1A1A1A" stroke-width="0.5"/><line x1="100" y1="0" x2="100" y2="200" stroke="#1A1A1A" stroke-width="0.5"/><line x1="300" y1="0" x2="300" y2="200" stroke="#1A1A1A" stroke-width="0.5"/><ellipse cx="90" cy="80" rx="45" ry="30" fill="#2A2A2A"/><ellipse cx="90" cy="130" rx="30" ry="35" fill="#2A2A2A"/><ellipse cx="200" cy="75" rx="40" ry="35" fill="#2A2A2A"/><ellipse cx="270" cy="85" rx="55" ry="28" fill="#2A2A2A"/><ellipse cx="310" cy="140" rx="20" ry="25" fill="#2A2A2A"/><ellipse cx="352" cy="88" rx="30" ry="20" fill="#2A2A2A"/><circle cx="90" cy="80" r="4" fill="none" stroke="#E85500" stroke-width="1.5"/><circle cx="90" cy="80" r="9" fill="none" stroke="#E85500" stroke-width="0.5" opacity="0.5"/><circle cx="200" cy="75" r="4" fill="none" stroke="#E85500" stroke-width="1.5"/><circle cx="200" cy="75" r="9" fill="none" stroke="#E85500" stroke-width="0.5" opacity="0.5"/><circle cx="270" cy="85" r="3" fill="none" stroke="#FF2D2D" stroke-width="1.5"/><circle cx="270" cy="85" r="7" fill="none" stroke="#FF2D2D" stroke-width="0.5" opacity="0.5"/></svg><div class="map-label">GLOBAL THREAT MAP</div></div>`;
+const MAP_BOX  = `<div class="map-box"><svg class="map-svg" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="200" fill="#111"/><line x1="0" y1="100" x2="400" y2="100" stroke="#2A2A2A" stroke-width="0.5"/><line x1="200" y1="0" x2="200" y2="200" stroke="#2A2A2A" stroke-width="0.5"/><line x1="0" y1="50" x2="400" y2="50" stroke="#1A1A1A" stroke-width="0.5"/><line x1="0" y1="150" x2="400" y2="150" stroke="#1A1A1A" stroke-width="0.5"/><line x1="100" y1="0" x2="100" y2="200" stroke="#1A1A1A" stroke-width="0.5"/><line x1="300" y1="0" x2="300" y2="200" stroke="#1A1A1A" stroke-width="0.5"/><ellipse cx="90" cy="80" rx="45" ry="30" fill="#2A2A2A"/><ellipse cx="90" cy="130" rx="30" ry="35" fill="#2A2A2A"/><ellipse cx="200" cy="75" rx="40" ry="35" fill="#2A2A2A"/><ellipse cx="270" cy="85" rx="55" ry="28" fill="#2A2A2A"/><ellipse cx="310" cy="140" rx="20" ry="25" fill="#2A2A2A"/><ellipse cx="352" cy="88" rx="30" ry="20" fill="#2A2A2A"/><circle cx="90" cy="80" r="4" fill="none" stroke="#E85500" stroke-width="1.5"/><circle cx="90" cy="80" r="9" fill="none" stroke="#E85500" stroke-width="0.5" opacity="0.5"/><circle cx="200" cy="75" r="4" fill="none" stroke="#E85500" stroke-width="1.5"/><circle cx="200" cy="75" r="9" fill="none" stroke="#E85500" stroke-width="0.5" opacity="0.5"/><circle cx="270" cy="85" r="3" fill="none" stroke="#FF2D2D" stroke-width="1.5"/><circle cx="270" cy="85" r="7" fill="none" stroke="#FF2D2D" stroke-width="0.5" opacity="0.5"/></svg><div class="map-label">GLOBAL THREAT MAP</div></div>`;
 
 function renderFeed(tab) {
   const container = document.getElementById('feed-list-body');
   let items = ARTS;
-  if (tab === 'FAVORITES') {
-    items = ARTS.filter(a => STATE.favorites.has(a.id));
-  } else if (tab === 'SECURITY') {
-    items = ARTS.filter(a => a.src.includes('SEC') || a.tags.some(t => t.includes('THREAT')));
-  } else if (tab === 'INTEL_STREAM') {
-    items = ARTS.filter(a => a.bdg !== 'CRITICAL');
-  }
+  if (tab === 'FAVORITES')    items = ARTS.filter(a => STATE.favorites.has(a.id));
+  else if (tab === 'SECURITY') items = ARTS.filter(a => a.src.includes('SEC') || a.tags.some(t => t.includes('THREAT')));
+  else if (tab === 'INTEL_STREAM') items = ARTS.filter(a => a.bdg !== 'CRITICAL');
   if (items.length === 0) {
     container.innerHTML = `<div style="padding:40px 14px;text-align:center;color:var(--white-dimmer);font-size:12px;letter-spacing:0.15em">${tab === 'FAVORITES' ? '// NO SAVED SIGNALS YET<br><br>PRESS ★ ON ANY SIGNAL TO SAVE' : '// NO SIGNALS IN THIS STREAM'}</div>`;
     return;
@@ -814,9 +1026,7 @@ function openArt(i) {
   favBtn.classList.toggle('btn-fav-on', isFav);
   document.getElementById('ov-art').classList.add('open');
 }
-
 function closeArt() { document.getElementById('ov-art').classList.remove('open'); }
-
 function openArticleLink() {
   const a = ARTS[STATE.currentArticle];
   if (a && a.url) window.open(a.url, '_blank');
@@ -824,18 +1034,11 @@ function openArticleLink() {
 
 // ─── FAVORITES ────────────────────────────────────────────
 function toggleFavorite(i) {
-  if (STATE.favorites.has(i)) {
-    STATE.favorites.delete(i);
-    toast('REMOVED FROM FAVORITES');
-  } else {
-    STATE.favorites.add(i);
-    toast('SAVED TO FAVORITES ★');
-  }
+  if (STATE.favorites.has(i)) { STATE.favorites.delete(i); toast('REMOVED FROM FAVORITES'); }
+  else { STATE.favorites.add(i); toast('SAVED TO FAVORITES ★'); }
   localStorage.setItem('gazer_favs', JSON.stringify([...STATE.favorites]));
-  renderFeed(STATE.currentTab);
-  updateFavCount();
+  renderFeed(STATE.currentTab); updateFavCount();
 }
-
 function toggleFavModal() {
   toggleFavorite(STATE.currentArticle);
   const isFav = STATE.favorites.has(STATE.currentArticle);
@@ -843,31 +1046,98 @@ function toggleFavModal() {
   btn.textContent = isFav ? '★ SAVED' : '★ SAVE';
   btn.classList.toggle('btn-fav-on', isFav);
 }
-
 function updateFavCount() {
   const el = document.getElementById('fav-count');
   if (el) el.textContent = STATE.favorites.size;
 }
-
 function shareArt(i) {
   const a = ARTS[i];
   const txt = `[GAZER SIGNAL] ${a.title} — ${a.src} @ ${a.time} — ${a.url}`;
-  if (navigator.share) {
-    navigator.share({ title: a.title, text: txt, url: a.url }).then(() => toast('SIGNAL SHARED ↗')).catch(() => {});
-  } else {
-    navigator.clipboard.writeText(txt).then(() => toast('COPIED TO CLIPBOARD ↗')).catch(() => toast('SHARE: ' + txt.slice(0, 40) + '...'));
-  }
+  if (navigator.share) navigator.share({ title: a.title, text: txt, url: a.url }).then(() => toast('SIGNAL SHARED ↗')).catch(() => {});
+  else navigator.clipboard.writeText(txt).then(() => toast('COPIED TO CLIPBOARD ↗')).catch(() => toast('SHARE: ' + txt.slice(0, 40) + '...'));
 }
 function shareArtModal() { shareArt(STATE.currentArticle); }
+
+// ─── TAG SYSTEM ───────────────────────────────────────────
+function saveTagsDB() {
+  localStorage.setItem('gazer_tags', JSON.stringify(STATE.tagsDB));
+}
+function renderTagPicker() {
+  const picker = document.getElementById('tag-picker');
+  if (!picker) return;
+  picker.innerHTML = STATE.tagsDB.map(t => {
+    const isSel = STATE.formTags.includes(t.id);
+    return `<button class="tp-chip${isSel ? ' sel-' + t.color : ''}" onclick="toggleFormTag('${t.id}')">${t.name}</button>`;
+  }).join('');
+}
+function toggleFormTag(id) {
+  const idx = STATE.formTags.indexOf(id);
+  if (idx >= 0) STATE.formTags.splice(idx, 1); else STATE.formTags.push(id);
+  renderTagPicker();
+}
+function addNewTagFromForm() {
+  const nameEl  = document.getElementById('tp-new-input');
+  const colorEl = document.getElementById('tp-new-color');
+  const name = nameEl.value.trim().toUpperCase();
+  if (!name) return;
+  const id = 't' + (STATE.nextTagId++);
+  const color = colorEl.value;
+  STATE.tagsDB.push({ id, name, color });
+  saveTagsDB();
+  STATE.formTags.push(id);
+  nameEl.value = '';
+  renderTagPicker();
+  toast('TAG CREATED: ' + name);
+}
+function openTagManager() {
+  renderTagManager();
+  document.getElementById('ov-tags').classList.add('open');
+}
+function closeTagManager() {
+  document.getElementById('ov-tags').classList.remove('open');
+}
+function renderTagManager() {
+  const el = document.getElementById('tm-tags-list');
+  if (!el) return;
+  if (STATE.tagsDB.length === 0) { el.innerHTML = '<div class="tm-empty">// NO TAGS IN DATABASE</div>'; return; }
+  el.innerHTML = STATE.tagsDB.map(t => `
+    <div class="tm-tag-row">
+      <div class="tm-tag-info">
+        <span class="tp-chip sel-${t.color}" style="cursor:default">${t.name}</span>
+        <span style="font-size:9.5px;color:var(--white-dimmer);letter-spacing:0.08em">${t.color || 'grey'}</span>
+      </div>
+      <button class="tm-del" onclick="deleteTagFromDB('${t.id}')">× DEL</button>
+    </div>`).join('');
+}
+function deleteTagFromDB(id) {
+  const t = STATE.tagsDB.find(tt => tt.id === id);
+  if (!t) return;
+  STATE.tagsDB = STATE.tagsDB.filter(tt => tt.id !== id);
+  STATE.nodes.forEach(n => { if (n.tags) n.tags = n.tags.filter(tid => tid !== id); });
+  saveTagsDB();
+  renderTagManager();
+  toast('TAG DELETED: ' + t.name);
+}
+function addTagToDb() {
+  const nameEl  = document.getElementById('tm-new-name');
+  const colorEl = document.getElementById('tm-new-color');
+  const name = nameEl.value.trim().toUpperCase();
+  if (!name) return;
+  const id = 't' + (STATE.nextTagId++);
+  const color = colorEl.value;
+  STATE.tagsDB.push({ id, name, color });
+  saveTagsDB();
+  nameEl.value = '';
+  renderTagManager();
+  toast('TAG CREATED: ' + name);
+}
 
 // ─── NODES CRUD ───────────────────────────────────────────
 function renderNodes(filter) {
   const q = (filter || '').toLowerCase();
   const list = document.getElementById('nodes-list');
   let filtered = q ? STATE.nodes.filter(n =>
-    n.name.toLowerCase().includes(q) ||
-    n.url.toLowerCase().includes(q) ||
-    n.cat.toLowerCase().includes(q)
+    n.name.toLowerCase().includes(q) || n.url.toLowerCase().includes(q) || n.cat.toLowerCase().includes(q)
   ) : STATE.nodes;
 
   const onCount   = STATE.nodes.filter(n => n.status === 'on').length;
@@ -884,22 +1154,27 @@ function renderNodes(filter) {
   const cats = [...new Set(filtered.map(n => n.cat))];
   list.innerHTML = cats.map(cat =>
     `<div class="section-lbl">// ${cat}</div>` +
-    filtered.filter(n => n.cat === cat).map(n => `
-      <div class="node-row">
+    filtered.filter(n => n.cat === cat).map(n => {
+      const tagChips = (n.tags || []).map(tid => {
+        const t = STATE.tagsDB.find(tt => tt.id === tid);
+        return t ? `<span class="n-tag-chip ntc-${t.color}">${t.name}</span>` : '';
+      }).join('');
+      return `<div class="node-row">
         <div class="n-dot ${n.status==='on'?'n-on':n.status==='idle'?'n-idle':'n-off'}"></div>
         <div class="n-info">
           <div class="n-name">${n.name}</div>
           <div class="n-url">${n.url}</div>
+          <div class="n-tags">${tagChips}</div>
         </div>
         <div class="n-count">${n.count}</div>
         <div class="n-actions">
           <button class="n-btn ${n.status==='on'?'disc':'conn'}" onclick="toggleNodeStatus(${n.id})">${n.status==='on'?'— DISC':'+ CONN'}</button>
           <button class="n-btn del" onclick="deleteNode(${n.id})">× DEL</button>
         </div>
-      </div>`).join('')
+      </div>`;
+    }).join('')
   ).join('') + `<button class="add-btn" onclick="openAF()">+ CONNECT NEW NODE</button>`;
 }
-
 function toggleNodeStatus(id) {
   const node = STATE.nodes.find(n => n.id === id);
   if (!node) return;
@@ -907,7 +1182,6 @@ function toggleNodeStatus(id) {
   renderNodes(document.getElementById('node-search')?.value || '');
   toast(node.status === 'on' ? `CONNECTED: ${node.name.toUpperCase()}` : `DISCONNECTED: ${node.name.toUpperCase()}`);
 }
-
 function deleteNode(id) {
   const node = STATE.nodes.find(n => n.id === id);
   if (!node) return;
@@ -915,23 +1189,25 @@ function deleteNode(id) {
   renderNodes(document.getElementById('node-search')?.value || '');
   toast(`NODE REMOVED: ${node.name.toUpperCase()}`);
 }
-
+function openAF() {
+  STATE.formTags = [];
+  renderTagPicker();
+  document.getElementById('ov-af').classList.add('open');
+}
+function closeAF() { document.getElementById('ov-af').classList.remove('open'); }
 function connectNode() {
   const url  = document.getElementById('f-url').value.trim();
   const name = document.getElementById('f-name').value.trim() || (url.split('/')[2] || url).toUpperCase();
   const cat  = (document.getElementById('f-cat').value.trim() || 'UNCATEGORIZED').toUpperCase();
   if (!url) { toast('ENTER A VALID FEED URL'); return; }
-  STATE.nodes.push({ id: STATE.nextNodeId++, name, url, cat, status: 'on', count: 0 });
+  STATE.nodes.push({ id: STATE.nextNodeId++, name, url, cat, status: 'on', count: 0, tags: [...STATE.formTags] });
   document.getElementById('f-url').value = '';
   document.getElementById('f-name').value = '';
   document.getElementById('f-cat').value = '';
-  renderNodes();
-  closeAF();
+  STATE.formTags = [];
+  renderNodes(); closeAF();
   toast(`NODE CONNECTED: ${name}`);
 }
-
-function openAF() { document.getElementById('ov-af').classList.add('open'); }
-function closeAF() { document.getElementById('ov-af').classList.remove('open'); }
 
 // ─── EXPORT ───────────────────────────────────────────────
 function exportBackup(format) {
@@ -943,29 +1219,28 @@ function exportBackup(format) {
     downloadFile('gazer-backup.opml', xml, 'text/xml');
   } else {
     const cats = [...new Set(STATE.nodes.map(n => n.cat))];
-    let md = `# GAZER — Signal Sources Export\n\n*Generated: ${new Date().toLocaleDateString('pt-BR')}*\n\n`;
+    let md = `# GAZER — Signal Sources Export\n\n*Generated: ${new Date().toLocaleDateString('pt-BR')}*\n\n## Tag Database\n\n`;
+    STATE.tagsDB.forEach(t => { md += `- \`${t.name}\` (${t.color || 'grey'})\n`; });
+    md += '\n';
     cats.forEach(cat => {
       md += `## ${cat}\n\n`;
       STATE.nodes.filter(n => n.cat === cat).forEach(n => {
-        md += `- **${n.name}** — \`${n.url}\` — ${n.status.toUpperCase()} — ${n.count} signals\n`;
+        const tagNames = (n.tags || []).map(tid => { const t = STATE.tagsDB.find(tt => tt.id === tid); return t ? t.name : null; }).filter(Boolean).join(', ');
+        md += `- **${n.name}** — \`${n.url}\` — ${n.status.toUpperCase()} — ${n.count} signals${tagNames ? ' — [' + tagNames + ']' : ''}\n`;
       });
       md += '\n';
     });
     if (STATE.favorites.size > 0) {
       md += `## Saved Articles\n\n`;
-      [...STATE.favorites].forEach(i => {
-        const a = ARTS[i];
-        if (a) md += `- **${a.title}** (${a.src} @ ${a.time}) — ${a.url}\n`;
-      });
+      [...STATE.favorites].forEach(i => { const a = ARTS[i]; if (a) md += `- **${a.title}** (${a.src} @ ${a.time}) — ${a.url}\n`; });
     }
     downloadFile('gazer-backup.md', md, 'text/markdown');
   }
 }
-
 function downloadFile(filename, content, mime) {
   const blob = new Blob([content], { type: mime + ';charset=utf-8' });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
+  const url  = URL.createObjectURL(blob);
+  const a    = document.createElement('a');
   a.href = url; a.download = filename;
   document.body.appendChild(a); a.click();
   document.body.removeChild(a); URL.revokeObjectURL(url);
@@ -979,7 +1254,6 @@ function toast(msg) {
   el.textContent = msg; el.classList.add('show');
   clearTimeout(_t); _t = setTimeout(() => el.classList.remove('show'), 2800);
 }
-
 function updateStats() {
   const lat = (10 + Math.random() * 8).toFixed(1);
   const nds = (4000 + Math.floor(Math.random() * 200)).toLocaleString();
@@ -995,7 +1269,9 @@ function updateStats() {
 // ─── EVENT LISTENERS ──────────────────────────────────────
 document.getElementById('ov-art').addEventListener('click', e => { if (e.target === document.getElementById('ov-art')) closeArt(); });
 document.getElementById('ov-af').addEventListener('click',  e => { if (e.target === document.getElementById('ov-af'))  closeAF();  });
-document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeArt(); closeAF(); } });
+document.getElementById('ov-tags').addEventListener('click', e => { if (e.target === document.getElementById('ov-tags')) closeTagManager(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeArt(); closeAF(); closeTagManager(); } });
+window.addEventListener('resize', () => { if (STATE.nodeView === 'graph') renderGraph(); });
 
 // ─── INIT ─────────────────────────────────────────────────
 setInterval(updateStats, 4000);
